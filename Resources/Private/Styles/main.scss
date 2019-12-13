@@ -1,0 +1,57 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+:root {
+    // Variables
+    --font-color: #444;
+    --font-color-dimmed: #E8E8E8;
+
+    // Sidebar
+    --sidebar-background-color: #404040;
+    --sidebar-font-color: #fff;
+    --sidebar-border-color: #333333;
+    --sidebar-handle-background-color: rgba(255, 255, 255, .2);
+
+    // Blog
+    --blog__article-footer-border-color: rgba(51, 51, 51, .2);
+
+    // Notifications
+    --notification-background-color: #E8E8E8;
+    --notification-color: #2F2F2F;
+    --notification-info-background-color: #80CFEF;
+    --notification-info-color: #1A2A30;
+    --notification-warning-background-color: #FAB973;
+    --notification-warning-color: #322517;
+    --notification-danger-background-color: #F48084;
+    --notification-danger-color: #623435;
+    --notification-success-background-color: #A3F7B5;
+    --notification-success-color: #3C5A42;
+}
+
+// Structure
+@import "structure";
+
+// Typography
+@import "typography";
+
+// Utils
+@import "utils";
+
+// Layout components
+@import "sidebar";
+@import "footer";
+
+// Sidebar components
+@import "profile";
+@import "socialmedia";
+@import "menu";
+
+// Specific components
+@import "breadcrumbs";
+@import "blog";
+@import "notifications";

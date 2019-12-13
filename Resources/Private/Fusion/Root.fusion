@@ -1,0 +1,3 @@
+include: ProtoType/**/*
+include: Content/**/*
+include: Document/**/*

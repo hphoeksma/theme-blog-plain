@@ -1,0 +1,9 @@
+'Theme.Blog.Plain:Content.TextWithImage':
+  superTypes:
+    'Neos.Neos:Content': true
+    'Neos.NodeTypes.BaseMixins:TextMixin': true
+    'Theme.Blog.Plain:Content.Image': true
+  ui:
+    label: i18n
+    icon: 'icon-picture'
+    position: 400

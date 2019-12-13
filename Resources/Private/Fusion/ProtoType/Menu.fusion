@@ -1,0 +1,23 @@
+prototype(Theme.Blog.Plain:Prototype.Menu) < prototype(Neos.Fusion:Component) {
+
+    items = Neos.Neos:MenuItems {
+        maximumLevels = 1
+    }
+    renderer = afx`
+        <nav class="menu">
+            <Neos.Fusion:Loop items={props.items}>
+                <Neos.Neos:NodeLink node={item.node} class={item.state}>{item.label}</Neos.Neos:NodeLink>
+            </Neos.Fusion:Loop>
+        </nav>
+    `
+
+    @cache {
+        mode = 'cached'
+        entryIdentifier {
+            documentNode = ${documentNode}
+        }
+        entryTags {
+            1 = ${Neos.Caching.nodeTypeTag('Neos.Neos:Document', documentNode)}
+        }
+    }
+}

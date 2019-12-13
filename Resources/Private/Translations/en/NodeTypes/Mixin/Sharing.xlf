@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file original="" product-name="Theme.Blog.Plain" source-language="en" datatype="plaintext">
+		<body>
+			<trans-unit id="groups.sharing" xml:space="preserve">
+				<source>Sharing Settings</source>
+			</trans-unit>
+			<trans-unit id="properties.sharing.facebook" xml:space="preserve">
+				<source>Facebook</source>
+			</trans-unit>
+			<trans-unit id="properties.sharing.twitter" xml:space="preserve">
+				<source>Twitter</source>
+			</trans-unit>
+			<trans-unit id="properties.sharing.linkedin" xml:space="preserve">
+				<source>Linkedin</source>
+			</trans-unit>
+			<trans-unit id="properties.sharing.reddit" xml:space="preserve">
+				<source>Reddit</source>
+			</trans-unit>
+			<trans-unit id="properties.sharing.whatsapp" xml:space="preserve">
+				<source>Whatsapp</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,83 @@
+:root {
+    font-size: 16px;
+    line-height: 1.75;
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    &:link,
+    &:visited,
+    &:active {
+        color: var(--font-color);
+        text-decoration: none;
+        border-bottom: 1px solid var(--font-color-dimmed);
+    }
+}
+
+h2, h3, h4, h5, h6 {
+    margin-bottom: 0;
+
+    + p {
+        margin-top: 0;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+figure {
+    margin: 0 0 2rem;
+}
+
+figcaption {
+    font-size: .85rem;
+    line-height: 1;
+    margin-top: .5rem;
+}
+
+picture {
+    overflow: auto;
+    display: block;
+
+    img {
+        display: block;
+    }
+}
+    blockquote {
+        font-size: 1.25rem;
+        font-style: italic;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        max-width: 80%;
+
+        &::before {
+            content: '\201D';
+            color: var(--font-color-dimmed);
+            font-size: 8rem;
+            font-style: italic;
+            font-weight: bold;
+            opacity: .5;
+            position: absolute;
+            top: -4rem;
+            left: -2rem;
+        }
+    }
+
+    cite {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 1rem;
+        display: flex;
+        align-self: flex-end;
+
+        &::before {
+            content: '—';
+            margin-right: .35rem;
+        }
+    }

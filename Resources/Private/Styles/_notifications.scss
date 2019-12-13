@@ -1,0 +1,48 @@
+.notifications {
+  .notification {
+    background: var(--notification-background-color);
+    border: 1px solid var(--notification-color);
+    border-radius: 3px;
+    color: var(--notification-color);
+    margin-bottom: 1rem;
+    padding: 1rem 2rem;
+    font-size: .85rem;
+    position: relative;
+
+    &__handler {
+      position: absolute;
+      right: 0;
+      top: .5rem;
+      cursor: pointer;
+
+      svg {
+        height: 1rem;
+        width: 1rem;
+      }
+    }
+
+    &--info {
+      background: var(--notification-info-background-color);
+      border-color: var(--notification-info-color);
+      color: var(--notification-info-color);
+    }
+
+    &--success {
+      background: var(--notification-success-background-color);
+      border-color: var(--notification-success-color);
+      color: var(--notification-success-color);
+    }
+
+    &--warning {
+      background: var(--notification-warning-background-color);
+      border-color: var(--notification-warning-color);
+      color: var(--notification-warning-color);
+    }
+
+    &--danger {
+      background: var(--notification-danger-background-color);
+      border-color: var(--notification-danger-color);
+      color: var(--notification-danger-color);
+    }
+  }
+}

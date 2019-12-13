@@ -1,0 +1,6 @@
+Theme.Blog.Plain:Content.PostIndex:
+  superTypes:
+    Neos.Neos:Content: true
+  ui:
+    label: i18n
+    icon: 'fas fa-indent'

@@ -1,0 +1,39 @@
+Neos:
+  Flow:
+    mvc:
+      routes:
+        "Neos.Neos":
+          variables:
+            # We prefer URLs without the ".html" suffix
+            defaultUriSuffix: ""
+  Neos:
+    eventLog:
+      enabled: true
+    navigateComponent:
+      nodeTree:
+        loadingDepth: 1
+      structureTree:
+        loadingDepth: 2
+    fusion:
+      autoInclude:
+        Theme.Blog.Plain: true
+    userInterface:
+      translation:
+        autoInclude:
+          Theme.Blog.Plain:
+            - 'NodeTypes/*'
+            - Main
+      inspector:
+        dataTypes:
+          Neos\Media\Domain\Model\ImageInterface:
+            editorOptions:
+              features:
+                resize: true
+    nodeTypes:
+      groups:
+        plugins: ~
+  Media:
+    assetSources:
+      unsplash:
+        assetSourceOptions:
+          accessKey: fcdb3cbf4db161f63ae54e86a9e96236443a3d393b1a623a1bb65e94e76beeb0

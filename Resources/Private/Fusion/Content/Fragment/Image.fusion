@@ -1,0 +1,65 @@
+##
+# Figure fragment for text and textWithImage
+#
+prototype(Theme.Blog.Plain:Content.Fragment.Image) < prototype(Neos.Fusion:Component) {
+    src = Neos.Fusion:Case {
+        asset {
+            condition = ${q(node).property('image')}
+            renderer = Neos.Neos:ImageUri {
+                asset = ${q(node).property('image')}
+            }
+        }
+        dummy {
+            condition = ${node.context.inBackend}
+            renderer = Neos.Fusion:ResourceUri {
+                path = 'resource://Neos.Neos/Public/Images/dummy-image.svg'
+            }
+        }
+    }
+
+    alt = ${q(node).property('alternativeText')}
+    title = ${q(node).property('title')}
+    class = Neos.Fusion:Join {
+        isFeatured = ${q(node).property('isFeatured') ? 'is-featured' : null}
+        float = ${q(node).property('float') ? 'float-' + q(node).property('float') : null}
+        @glue = ' '
+        @process.trimWhiteSpace = ${String.trim(value)}
+    }
+
+    imageClass = Neos.Fusion:Join {
+        isRounded = ${q(node).property('isRounded') ? 'is-rounded' : null}
+        hasGradient = ${q(node).property('hasGradient') ? 'has-gradient' : null}
+        @glue = ' '
+        @process.trimWhiteSpace = ${String.trim(value)}
+    }
+
+    hasCaption = ${q(node).property('useCopyrightsInCaption') || q(node).property('hasCaption')}
+    caption = Neos.Fusion:Case {
+        caption {
+            condition = ${q(node).property('hasCaption')}
+            renderer = Neos.Neos:Editable {
+                property = 'caption'
+            }
+        }
+        copyrights {
+            condition = ${(q(node).property('useCopyrightsInCaption') && q(node).property('image').copyrightNotice)}
+            renderer = ${q(node).property('image').copyrightNotice}
+        }
+        default {
+            condition = true
+            renderer = false
+        }
+    }
+
+    renderer = afx`
+        <figure class={props.class}>
+            <picture class={props.imageClass}>
+                <img src={props.src} title={props.title} alt={props.alt} />
+            </picture>
+            <figcaption @if.has={props.hasCaption && props.caption}>
+                {props.caption}
+            </figcaption>
+        </figure>
+    `
+}
+

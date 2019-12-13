@@ -1,0 +1,15 @@
+'Theme.Blog.Plain:Mixin.Theme':
+  abstract: true
+  ui:
+    inspector:
+      tabs:
+        theme:
+          label: i18n
+          position: 40
+          icon: 'fas fa-palette'
+      groups:
+        theme:
+          label: i18n
+          position: 10
+          icon: 'fas fa-palette'
+          tab: theme

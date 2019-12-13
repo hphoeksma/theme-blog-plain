@@ -1,0 +1,26 @@
+Theme.Blog.Plain:Document.Post:
+  superTypes:
+    Theme.Blog.Plain:Document: true
+  ui:
+    label: i18n
+    icon: 'far fa-newspaper'
+  properties:
+    titleOverride:
+      ui:
+        inspector:
+          position: 100
+    openGraphType:
+      defaultValue: article
+    publicationDateTime:
+      type: DateTime
+      defaultValue: 'now'
+      ui:
+        label: i18n
+        inspector:
+          group: 'document'
+          position: 200
+          editorOptions:
+            format: 'd-m-Y H:i'
+      validation:
+        'Neos.Neos/Validation/DateTimeValidator': []
+        'Neos.Neos/Validation/NotEmptyValidator': []

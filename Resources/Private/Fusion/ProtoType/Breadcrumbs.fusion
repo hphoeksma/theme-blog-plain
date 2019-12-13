@@ -1,0 +1,24 @@
+prototype(Theme.Blog.Plain:Prototype.Breadcrumbs) < prototype(Neos.Fusion:Component) {
+
+    items = Neos.Neos:MenuItems {
+        itemCollection = ${q(node).add(q(node).parents('[instanceof Neos.Neos:Document]')).get()}
+    }
+
+    renderer = afx`
+        <nav class="breadcrumbs">
+            <Neos.Fusion:Loop items={Array.reverse(props.items)}>
+                <Neos.Neos:NodeLink node={item.node} class={item.state}>{item.label}</Neos.Neos:NodeLink>
+            </Neos.Fusion:Loop>
+        </nav>
+    `
+
+    @cache {
+        mode = 'cached'
+        entryIdentifier {
+            documentNode = ${documentNode}
+        }
+        entryTags {
+            1 = ${Neos.Caching.nodeTypeTag('Neos.Neos:Document', documentNode)}
+        }
+    }
+}

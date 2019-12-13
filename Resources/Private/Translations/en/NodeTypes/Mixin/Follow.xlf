@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file original="" product-name="Theme.Blog.Plain" source-language="en" datatype="plaintext">
+		<body>
+			<trans-unit id="groups.follow" xml:space="preserve">
+				<source>Follow Settings</source>
+			</trans-unit>
+			<trans-unit id="properties.follow.facebook" xml:space="preserve">
+				<source>Facebook</source>
+			</trans-unit>
+			<trans-unit id="properties.follow.twitter" xml:space="preserve">
+				<source>Twitter</source>
+			</trans-unit>
+			<trans-unit id="properties.follow.linkedin" xml:space="preserve">
+				<source>Linkedin</source>
+			</trans-unit>
+			<trans-unit id="properties.follow.instagram" xml:space="preserve">
+				<source>Instagram</source>
+			</trans-unit>
+			<trans-unit id="properties.follow.medium" xml:space="preserve">
+				<source>Medium</source>
+			</trans-unit>
+			<trans-unit id="properties.follow.github" xml:space="preserve">
+				<source>Github</source>
+			</trans-unit>
+			<trans-unit id="properties.follow.pinterest" xml:space="preserve">
+				<source>Pinterest</source>
+			</trans-unit>
+			<trans-unit id="properties.follow.youtube" xml:space="preserve">
+				<source>Youtube</source>
+			</trans-unit>
+			<trans-unit id="properties.follow.vimeo" xml:space="preserve">
+				<source>Vimeo</source>
+			</trans-unit>
+			<trans-unit id="properties.follow.strava" xml:space="preserve">
+				<source>Strava</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

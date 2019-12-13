@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file original="" product-name="Theme.Blog.Plain" source-language="en" datatype="plaintext">
+		<body>
+            <trans-unit id="ui.label">
+                <source>Image</source>
+            </trans-unit>
+            <trans-unit id="properties.isFeatured" xml:space="preserve">
+                <source>Featured Image</source>
+            </trans-unit>
+            <trans-unit id="properties.isRounded" xml:space="preserve">
+                <source>Apply rounded style</source>
+            </trans-unit>
+            <trans-unit id="properties.hasGradient" xml:space="preserve">
+                <source>Apply gradient style</source>
+            </trans-unit>
+            <trans-unit id="properties.useCopyrightsInCaption" xml:space="preserve">
+                <source>Use the copyrights of the image as caption</source>
+            </trans-unit>
+            <trans-unit id="properties.useCopyrightsInCaption" xml:space="preserve">
+                <source>Use copyrights as caption</source>
+            </trans-unit>
+            <trans-unit id="properties.useCopyrightsInCaption.ui.help.message" xml:space="preserve">
+                <source><![CDATA[When enabled the copyrights from the asset is used as the image caption.
+                When you enable the caption from the image itself, this property is rendered useless.]]></source>
+            </trans-unit>
+            <trans-unit id="properties.float" xml:space="preserve">
+                <source>Float the image</source>
+            </trans-unit>
+            <trans-unit id="properties.float.selectBoxEditor.values." xml:space="preserve">
+                <source>None</source>
+            </trans-unit>
+            <trans-unit id="properties.float.selectBoxEditor.values.left" xml:space="preserve">
+                <source>Left</source>
+            </trans-unit>
+            <trans-unit id="properties.float.selectBoxEditor.values.right" xml:space="preserve">
+                <source>Right</source>
+            </trans-unit>
+		</body>
+	</file>
+</xliff>

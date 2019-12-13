@@ -1,0 +1,27 @@
+prototype(Theme.Blog.Plain:Prototype.Profile) < prototype(Neos.Fusion:Component) {
+    @context.node = ${q(site).get(0)}
+
+    homeUri = Neos.Neos:NodeUri {
+        node = ${site}
+    }
+
+    logo = Neos.Neos:ImageUri {
+        asset = ${q(node).property('logo')}
+    }
+
+    name = Neos.Neos:Editable {
+        property = 'blogName'
+    }
+
+    introduction = Neos.Neos:Editable {
+        property = 'introduction'
+    }
+
+    renderer = afx`
+        <section class="profile">
+            <a href={props.homeUri} title={props.name}><img class="profile__image" src={props.logo} alt="" title=""/></a>
+            <h1 class="profile__name">{props.name}</h1>
+            <p class="profile__details">{props.introduction}</p>
+        </section>
+    `
+}

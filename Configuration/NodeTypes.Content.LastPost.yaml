@@ -1,0 +1,6 @@
+Theme.Blog.Plain:Content.LastPost:
+  superTypes:
+    Neos.Neos:Content: true
+  ui:
+    label: i18n
+    icon: 'far fa-newspaper'

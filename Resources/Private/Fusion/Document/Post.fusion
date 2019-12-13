@@ -1,0 +1,20 @@
+prototype(Theme.Blog.Plain:Document.Post) < prototype(Theme.Blog.Plain:Document.Page) {
+    body.content = Neos.Fusion:Component {
+        header = ${q(documentNode).property('title')}
+        content = Neos.Neos:PrimaryContent {
+            nodePath = 'main'
+        }
+        publicationDate = ${Date.format(q(documentNode).property('publicationDateTime'), 'd-m-Y')}
+        publicationDateLead = ${Translation.translate('post.publicationDateLead', null, [], 'Main', 'Theme.Blog.Plain')}
+        renderer = afx`
+        <article class="blog__article">
+            <h1 class="article__header">{props.header}</h1>
+            {props.content}
+            <footer class="article__footer">
+                <p class="article__meta">{props.publicationDateLead} {props.publicationDate}</p>
+                <Theme.Blog.Plain:Prototype.ShareLinks />
+            </footer>
+        </article>
+        `
+    }
+}

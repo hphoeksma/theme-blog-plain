@@ -1,0 +1,25 @@
+{
+    "description": "",
+    "type": "neos-theme",
+    "name": "theme/blog-plain",
+    "require": {
+        "neos/neos": "*",
+        "neos/nodetypes-basemixins": "*",
+        "neos/seo": "*"
+    },
+    "suggest": {
+        "neos/seo": "*",
+        "yoast/yoast-seo-for-neos": "*",
+        "dl/assetsource-unsplash": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Theme\\Blog\\Plain\\": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "Theme.Blog.Plain"
+        }
+    }
+}

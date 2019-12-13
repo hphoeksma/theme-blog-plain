@@ -1,0 +1,29 @@
+'Theme.Blog.Plain:Mixin.Sharing':
+  abstract: true
+  ui:
+    help:
+      message: i18n
+    inspector:
+      groups:
+        sharing:
+          label: i18n
+          position: 10
+          icon: 'fas fa-palette'
+          tab: theme
+          collapsed: true
+  properties:
+    sharing.facebook: &sharing
+      type: boolean
+      ui:
+        label: i18n
+        inspector:
+          group: sharing
+    sharing.twitter:
+      <<: *sharing
+    sharing.linkedin:
+      <<: *sharing
+    sharing.reddit:
+      <<: *sharing
+    sharing.whatsapp:
+      <<: *sharing
+

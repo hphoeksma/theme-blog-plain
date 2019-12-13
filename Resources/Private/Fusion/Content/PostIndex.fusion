@@ -1,0 +1,55 @@
+##
+# "Text" element
+#
+prototype(Theme.Blog.Plain:Content.PostIndex) < prototype(Neos.Fusion:Component) {
+    posts = ${q(site).find('[instanceof Theme.Blog.Plain:Document.Post]').sort('publicationDateTime', 'DESC').get()}
+
+    renderer = afx`
+        <section class="blog__index">
+            <Neos.Fusion:Loop items={props.posts}>
+                <Theme.Blog.Plain:ProtoType.PostIndexItem node={item}/>
+            </Neos.Fusion:Loop>
+        </section>
+    `
+
+    @cache {
+        mode = 'cached'
+        entryTags {
+            1 = ${Neos.Caching.nodeTag(node)}
+            1 = ${Neos.Caching.nodeTypeTag('Theme.Blog.Plain:Document.Post', node)}
+        }
+    }
+}
+
+prototype(Theme.Blog.Plain:ProtoType.PostIndexItem) < prototype(Neos.Fusion:Component) {
+    @context.node = ${this.node}
+
+    imageUri = Neos.Neos:ImageUri {
+        asset = ${q(node).children('main').find('[instanceof Theme.Blog.Plain:Content.Image]').first().property('image')}
+    }
+    nodeUri = Neos.Neos:NodeUri {
+        node = ${node}
+    }
+    class = Neos.Fusion:Join {
+        1 = "article__header"
+        2 = "has-gradient"
+        2.@if.hasImage = ${imageUri}
+        @glue = ' '
+        @process.trimWhiteSpace = ${String.trim(value)}
+    }
+
+    renderer = afx`
+        <article class="article">
+            <Neos.Fusion:Tag tagName="a" attributes.href={props.nodeUri} attributes.title={node.title} attributes.class={props.class} attributes.data-image={props.imageUri}>
+                <h1>{node.label}</h1>
+            </Neos.Fusion:Tag>
+            <div class="article__intro">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid assumenda, commodi corporis dolore
+                    earum esse eveniet in iste itaque, mollitia nihil obcaecati perferendis perspiciatis possimus quae,
+                    quia
+                    quo rem saepe similique unde velit voluptate voluptatem!</p>
+            </div>
+            <a href={props.nodeUri} class="article__read-more"><span>continue reading</span> <i data-feather="arrow-right"></i></a>
+        </article>
+    `
+}

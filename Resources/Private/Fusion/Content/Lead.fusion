@@ -1,0 +1,8 @@
+##
+# "Lead text" element
+#
+prototype(Theme.Blog.Plain:Content.Lead) < prototype(Theme.Blog.Plain:Content.Text) {
+    renderer = afx`
+        <div class="article__lead">{props.text}</div>
+    `
+}
