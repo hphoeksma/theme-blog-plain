@@ -1,3 +1,4 @@
 prototype(Theme.Blog.Plain:Content.Image) < prototype(Neos.Neos:ContentComponent) {
-    renderer = afx`<Theme.Blog.Plain:Content.Fragment.Image />`
+  renderer = afx`
+    <Theme.Blog.Plain:Content.Fragment.Image/>`
 }

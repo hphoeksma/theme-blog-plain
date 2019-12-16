@@ -1,7 +1,7 @@
 prototype(Theme.Blog.Plain:Prototype.Footer) < prototype(Neos.Neos:ContentComponent) {
-    @context.node = ${site}
+  @context.node = ${site}
 
-    renderer = afx`
-        <Neos.Neos:PrimaryContent nodePath="footer" />
-    `
+  renderer = afx`
+    <Neos.Neos:PrimaryContent nodePath="footer"/>
+  `
 }

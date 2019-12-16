@@ -1,43 +1,43 @@
 prototype(Theme.Blog.Plain:Prototype.Follow) < prototype(Neos.Neos:ContentComponent) {
-    # Props
+  # Props
     facebook = ${q(site).property('follow.facebook')}
-    twitter = ${q(site).property('follow.twitter')}
-    linkedin = ${q(site).property('follow.linkedin')}
-    instagram = ${q(site).property('follow.instagram')}
-    pinterest = ${q(site).property('follow.pinterest')}
-    vimeo = ${q(site).property('follow.vimeo')}
-    youtube = ${q(site).property('follow.youtube')}
-    github = ${q(site).property('follow.github')}
-    medium = ${q(site).property('follow.medium')}
-    strava = ${q(site).property('follow.strava')}
-    strava.@process.wrap = ${'https://www.strava.com/athletes/' + value}
+  twitter = ${q(site).property('follow.twitter')}
+  linkedin = ${q(site).property('follow.linkedin')}
+  instagram = ${q(site).property('follow.instagram')}
+  pinterest = ${q(site).property('follow.pinterest')}
+  vimeo = ${q(site).property('follow.vimeo')}
+  youtube = ${q(site).property('follow.youtube')}
+  github = ${q(site).property('follow.github')}
+  medium = ${q(site).property('follow.medium')}
+  strava = ${q(site).property('follow.strava')}
+  strava.@process.wrap = ${'https://www.strava.com/athletes/' + value}
 
-    stravaIcon = Neos.Fusion:ResourceUri {
-        path = 'resource://Theme.Blog.Plain/Public/images/strava.png'
-    }
-    text = Neos.Neos:Editable {
-        property = 'text'
-    }
+  stravaIcon = Neos.Fusion:ResourceUri {
+    path = 'resource://Theme.Blog.Plain/Public/images/strava.png'
+  }
+  text = Neos.Neos:Editable {
+    property = 'text'
+  }
 
-    # Rendering
+  # Rendering
     renderer = afx`
-        <div class="socialmedia">
-            <p @if.has={props.text}>{props.text}</p>
-            <div class="socialmedia__list a2a_kit a2a_kit_size_24 a2a_default_style a2a_follow">
-                <a class="a2a_button_twitter" data-a2a-follow={props.twitter} @if.has={props.twitter}></a>
-                <a class="a2a_button_facebook" data-a2a-follow={props.facebook} @if.has={props.facebook}></a>
-                <a class="a2a_button_instagram" data-a2a-follow={props.instagram} @if.has={props.instagram}></a>
-                <a class="a2a_button_pinterest" data-a2a-follow={props.pinterest} @if.has={props.pinterest}></a>
-                <a class="a2a_button_linkedin" data-a2a-follow={props.linkedin} @if.has={props.linkedin}></a>
-                <a class="a2a_button_vimeo" data-a2a-follow={props.vimeo} @if.has={props.vimeo}></a>
-                <a class="a2a_button_youtube" data-a2a-follow={props.youtube} @if.has={props.youtube}></a>
-                <a class="a2a_button_github" data-a2a-follow={props.github} @if.has={props.github}></a>
-                <a class="a2a_button_medium" data-a2a-follow={props.medium} @if.has={props.medium}></a>
-                <a class="a2a_button_strava" href={props.strava} @if.has={props.strava}>
-                    <img src={props.stravaIcon} border="0" alt="Share" width="20" height="20" />
-                </a>
-            </div>
-        </div>
-    `
+    <div class="socialmedia">
+      <p @if.has={props.text}>{props.text}</p>
+      <div class="socialmedia__list a2a_kit a2a_kit_size_24 a2a_default_style a2a_follow">
+        <a class="a2a_button_twitter" data-a2a-follow={props.twitter} @if.has={props.twitter}></a>
+        <a class="a2a_button_facebook" data-a2a-follow={props.facebook} @if.has={props.facebook}></a>
+        <a class="a2a_button_instagram" data-a2a-follow={props.instagram} @if.has={props.instagram}></a>
+        <a class="a2a_button_pinterest" data-a2a-follow={props.pinterest} @if.has={props.pinterest}></a>
+        <a class="a2a_button_linkedin" data-a2a-follow={props.linkedin} @if.has={props.linkedin}></a>
+        <a class="a2a_button_vimeo" data-a2a-follow={props.vimeo} @if.has={props.vimeo}></a>
+        <a class="a2a_button_youtube" data-a2a-follow={props.youtube} @if.has={props.youtube}></a>
+        <a class="a2a_button_github" data-a2a-follow={props.github} @if.has={props.github}></a>
+        <a class="a2a_button_medium" data-a2a-follow={props.medium} @if.has={props.medium}></a>
+        <a class="a2a_button_strava" href={props.strava} @if.has={props.strava}>
+          <img src={props.stravaIcon} border="0" alt="Share" width="20" height="20"/>
+        </a>
+      </div>
+    </div>
+  `
 }
 

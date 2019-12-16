@@ -1,0 +1,19 @@
+Theme.Blog.Plain:Content.Quote:
+  superTypes:
+    'Neos.Neos:Content': true
+    'Neos.NodeTypes.BaseMixins:TextMixin': true
+  ui:
+    label: i18n
+    icon: 'fas fa-quote-right'
+    position: 200
+  properties:
+    cite:
+      type: string
+      defaultValue: ''
+      ui:
+        inlineEditable: true
+        inline:
+          editorOptions:
+            formatting: ~
+            autoparagraph: false
+            placeholder: i18n

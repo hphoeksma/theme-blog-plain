@@ -1,29 +1,29 @@
 prototype(Theme.Blog.Plain:Prototype.ShareLinks) < prototype(Neos.Fusion:Component) {
 
-    # Props
+  # Props
     facebook = ${q(site).property('sharing.facebook')}
-    twitter = ${q(site).property('sharing.twitter')}
-    linkedin = ${q(site).property('sharing.linkedin')}
-    reddit = ${q(site).property('sharing.reddit')}
-    whatsapp = ${q(site).property('sharing.whatsapp')}
+  twitter = ${q(site).property('sharing.twitter')}
+  linkedin = ${q(site).property('sharing.linkedin')}
+  reddit = ${q(site).property('sharing.reddit')}
+  whatsapp = ${q(site).property('sharing.whatsapp')}
 
-    # When in need of a link with the document uri, you can use {props.nodeUri}
+  # When in need of a link with the document uri, you can use {props.nodeUri}
     nodeUri = Neos.Neos:NodeUri {
-        absolute = true
-        node = ${documentNode}
-    }
-    nodeUri.@process.encode = ${String.rawUrlEncode(value)}
+    absolute = true
+    node = ${documentNode}
+  }
+  nodeUri.@process.encode = ${String.rawUrlEncode(value)}
 
-    # Rendering
+  # Rendering
     renderer = afx`
-        <div class="article__share">
-            <div class="a2a_kit a2a_kit_size_24 a2a_default_style">
-                <a class="a2a_button_facebook" @if.hasFacebook={props.facebook}></a>
-                <a class="a2a_button_twitter" @if.hasFacebook={props.twitter}></a>
-                <a class="a2a_button_linkedin" @if.hasFacebook={props.linkedin}></a>
-                <a class="a2a_button_reddit" @if.hasFacebook={props.reddit}></a>
-                <a class="a2a_button_whatsapp" @if.hasFacebook={props.whatsapp}></a>
-            </div>
-        </div>
-    `
+    <div class="article__share">
+      <div class="a2a_kit a2a_kit_size_24 a2a_default_style">
+        <a class="a2a_button_facebook" @if.hasFacebook={props.facebook}></a>
+        <a class="a2a_button_twitter" @if.hasFacebook={props.twitter}></a>
+        <a class="a2a_button_linkedin" @if.hasFacebook={props.linkedin}></a>
+        <a class="a2a_button_reddit" @if.hasFacebook={props.reddit}></a>
+        <a class="a2a_button_whatsapp" @if.hasFacebook={props.whatsapp}></a>
+      </div>
+    </div>
+  `
 }

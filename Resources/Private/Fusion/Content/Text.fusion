@@ -2,11 +2,11 @@
 # "Text" element
 #
 prototype(Theme.Blog.Plain:Content.Text) < prototype(Neos.Neos:ContentComponent) {
-    text = Neos.Neos:Editable {
-        property = 'text'
-    }
+  text = Neos.Neos:Editable {
+    property = 'text'
+  }
 
-    renderer = afx`
-        {props.text}
-    `
+  renderer = afx`
+    {props.text}
+  `
 }

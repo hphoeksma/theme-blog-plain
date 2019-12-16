@@ -2,24 +2,24 @@
 # "Text" element
 #
 prototype(Theme.Blog.Plain:Content.LastPost) < prototype(Neos.Fusion:Component) {
-    @context.postNode = ${q(site).find('[instanceof Theme.Blog.Plain:Document.Post]').sort('publicationDateTime', 'DESC').get(0)}
-    header = ${q(postNode).property('title')}
-    content = Neos.Neos:PrimaryContent {
-        nodePath = ${q(postNode).children('main').property('_path')}
-    }
+  @context.postNode = ${q(site).find('[instanceof Theme.Blog.Plain:Document.Post]').sort('publicationDateTime', 'DESC').get(0)}
+  header = ${q(postNode).property('title')}
+  content = Neos.Neos:PrimaryContent {
+    nodePath = ${q(postNode).children('main').property('_path')}
+  }
 
-    renderer = afx`
-        <article class="blog__article">
-            <h1 class="article__header">{props.header}</h1>
-            {props.content}
-        </article>
-    `
+  renderer = afx`
+    <article class="blog__article">
+      <h1 class="article__header">{props.header}</h1>
+      {props.content}
+    </article>
+  `
 
-    @cache {
-        mode = 'cached'
-        entryTags {
-            1 = ${Neos.Caching.nodeTag(node)}
-            1 = ${Neos.Caching.nodeTypeTag('Theme.Blog.Plain:Document.Post', node)}
-        }
+  @cache {
+    mode = 'cached'
+    entryTags {
+      1 = ${Neos.Caching.nodeTag(node)}
+      1 = ${Neos.Caching.nodeTypeTag('Theme.Blog.Plain:Document.Post', node)}
     }
+  }
 }

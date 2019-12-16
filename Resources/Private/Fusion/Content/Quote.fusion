@@ -1,0 +1,17 @@
+##
+# "Quote" element
+#
+prototype(Theme.Blog.Plain:Content.Quote) < prototype(Neos.Neos:ContentComponent) {
+  text = Neos.Neos:Editable {
+    property = 'text'
+  }
+  cite = Neos.Neos:Editable {
+    property = 'cite'
+  }
+  renderer = afx`
+  <blockquote>
+    {props.text}
+    <cite @if.has={props.cite}>{props.cite}</cite>
+  </blockquote>
+  `
+}
