@@ -8,7 +8,7 @@ prototype(Theme.Blog.Plain:Prototype.ShareLinks) < prototype(Neos.Fusion:Compone
   whatsapp = ${q(site).property('sharing.whatsapp')}
 
   # When in need of a link with the document uri, you can use {props.nodeUri}
-    nodeUri = Neos.Neos:NodeUri {
+  nodeUri = Neos.Neos:NodeUri {
     absolute = true
     node = ${documentNode}
   }

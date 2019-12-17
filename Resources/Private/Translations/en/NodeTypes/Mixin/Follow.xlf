@@ -5,6 +5,9 @@
 			<trans-unit id="groups.follow" xml:space="preserve">
 				<source>Follow Settings</source>
 			</trans-unit>
+      <trans-unit id="properties.text.ui.inline.editorOptions.placeholder">
+          <source>(Optional)</source>
+      </trans-unit>
 			<trans-unit id="properties.follow.facebook" xml:space="preserve">
 				<source>Facebook</source>
 			</trans-unit>

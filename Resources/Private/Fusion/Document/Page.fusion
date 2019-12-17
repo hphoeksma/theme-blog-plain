@@ -12,6 +12,19 @@ prototype(Theme.Blog.Plain:Document.Page) < prototype(Neos.Neos:Page) {
       @position = 'after titleTag'
     }
 
+    favicon = Neos.Fusion:Component {
+      icon = Neos.Neos:ImageUri {
+        asset = ${q(site).property('logo')}
+        maxWidth = 16
+        maxHeight = 16
+        allowCropping = true
+        format = 'png'
+      }
+      renderer = afx`
+        <link rel="shortcut icon" type="image/png" href={props.icon}/>
+      `
+    }
+
     stylesheets = Neos.Fusion:Component {
       styles = Neos.Fusion:ResourceUri {
         path = 'resource://Theme.Blog.Plain/Public/styles/main.css'
@@ -38,8 +51,11 @@ prototype(Theme.Blog.Plain:Document.Page) < prototype(Neos.Neos:Page) {
       nodePath = "main"
     }
 
+//    image = ${q(site).property('logo').mediaType}
+//    image.@process.debug = Neos.Fusion:Debug
+
     # Rendering
-        renderer = afx`
+    renderer = afx`
       <button data-toggle="sidebar" class="sidebar__handle"><i data-feather="menu"></i></button>
       <aside class="sidebar" data-identifier="sidebar">
         <Theme.Blog.Plain:Prototype.Profile/>

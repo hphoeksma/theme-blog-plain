@@ -3,8 +3,6 @@
   superTypes:
     'Neos.NodeTypes.BaseMixins:TextMixin': true
   ui:
-    help:
-      message: i18n
     inspector:
       groups:
         follow:
@@ -14,6 +12,29 @@
           tab: theme
           collapsed: true
   properties:
+    text:
+      ui:
+        inline:
+          editorOptions:
+            formatting:
+              strong: true
+              em: true
+              sub: true
+              sup: true
+              p: false
+              h1: false
+              h2: false
+              h3: false
+              pre: false
+              removeFormat: true
+              table: false
+              a: true
+              ol: false
+              ul: false
+              underline: true
+              strikethrough: true
+            autoparagraph: false
+            placeholder: i18n
     follow.facebook: &follow
       type: string
       ui:

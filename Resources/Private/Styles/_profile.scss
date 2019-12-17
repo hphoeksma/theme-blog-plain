@@ -1,20 +1,21 @@
 .profile {
-    padding: 2rem;
-    text-align: center;
-    a {
-        border: none;
-    }
+  padding: 2rem;
+  text-align: center;
 
-    &__image {
-        @extend %is-rounded;
-        width: 8rem;
-    }
+  a {
+    border: none;
+  }
 
-    &__name {
+  &__image {
+    @extend %is-rounded;
+    width: 8rem;
+  }
 
-    }
+  &__name {
 
-    &__details {
-        font-size: .9rem;
-    }
+  }
+
+  &__details {
+    font-size: .9rem;
+  }
 }

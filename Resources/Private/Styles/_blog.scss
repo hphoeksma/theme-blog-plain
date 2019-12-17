@@ -1,10 +1,16 @@
 .blog {
   &__article {
+    .neos-contentcollection {
+      p {
+        font-family: 'Merriweather', serif;
+      }
+    }
+
     .article {
 
       &__lead {
-        font-weight: bold;
         font-size: 1.1rem;
+        color: var(--blog__article-lead-color);
       }
 
       &__footer {
@@ -37,6 +43,35 @@
           height: 1rem;
           width: 1rem;
         }
+      }
+    }
+  }
+
+  &__commenting {
+    max-width: var(--main-width);
+
+    #idc-container {
+      div.idc-text_noresize,
+      textarea.idc-text_noresize {
+        border-radius: 0;
+        -webkit-border-radius: 0;
+        background: none;
+      }
+
+      .idc-message {
+        background: none;
+      }
+
+      .idc-c .idc-c-h {
+        background: none;
+      }
+    }
+
+    #disqus_thread * {
+      filter: grayscale(1);
+
+      &:hover {
+        filter: grayscale(0);
       }
     }
   }
@@ -109,20 +144,20 @@
 
         h1,
         &__footer {
-          max-width: 890px;
+          max-width: var(--main-width);
         }
       }
 
       .neos-contentcollection {
         > * {
-          max-width: 890px;
+          max-width: var(--main-width);
         }
       }
 
       .neos-contentcollection blockquote,
       blockquote {
-        max-width: 50%;
-        margin: 2rem auto;
+        max-width: 400px;
+        margin: 2rem auto 2rem 200px;
       }
 
       .is-featured {
@@ -140,7 +175,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      max-width: 890px;
+      max-width: var(--main-width);
 
       > * {
         flex-basis: calc(50% - 3rem);

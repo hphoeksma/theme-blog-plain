@@ -1,3 +1,13 @@
+Theme:
+  Blog:
+    Plain:
+      commenting:
+        # Intense Debate Site Acct (go to https://intensedebate.com/ > Settings > Account > Site Key, select Site Acct key)
+        intenseDebateSiteAcct: ~
+        # Go to https://[yoursite].disqus.com/admin/install/platforms/universalcode/ and look for the variable s.src in the
+        # shown script. Mostlikely: [https://[yoursite].disqus.com/embed.js]
+        disqusEmbed: ~
+
 Neos:
   Flow:
     mvc:

@@ -1,25 +1,26 @@
 {
-    "description": "",
-    "type": "neos-theme",
-    "name": "theme/blog-plain",
-    "require": {
-        "neos/neos": "*",
-        "neos/nodetypes-basemixins": "*",
-        "neos/seo": "*"
-    },
-    "suggest": {
-        "neos/seo": "*",
-        "yoast/yoast-seo-for-neos": "*",
-        "dl/assetsource-unsplash": "*"
-    },
-    "autoload": {
-        "psr-4": {
-            "Theme\\Blog\\Plain\\": "Classes/"
-        }
-    },
-    "extra": {
-        "neos": {
-            "package-key": "Theme.Blog.Plain"
-        }
+  "description": "A Theme for a simple plain Neos blog",
+  "type": "neos-theme",
+  "name": "theme/blog-plain",
+  "license": "MIT",
+  "require": {
+    "neos/neos": "*",
+    "neos/nodetypes-basemixins": "*",
+    "neos/seo": "*"
+  },
+  "suggest": {
+    "neos/seo": "*",
+    "yoast/yoast-seo-for-neos": "*",
+    "dl/assetsource-unsplash": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Theme\\Blog\\Plain\\": "Classes/"
     }
+  },
+  "extra": {
+    "neos": {
+      "package-key": "Theme.Blog.Plain"
+    }
+  }
 }

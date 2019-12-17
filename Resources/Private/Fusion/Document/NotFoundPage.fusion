@@ -1,0 +1,14 @@
+/**
+ * NotFoundPage rendering for the Neos.Demo website
+ */
+prototype(Theme.Blog.Plain:Document.NotFoundPage) < prototype(Theme.Blog.Plain:Document.Page) {
+    #
+    # The page that is rendered here should always return the 404 status
+    # so all crawlers will understand that this is no normal content
+    #
+    prototype(Neos.Neos:Page) {
+        httpResponseHead {
+            statusCode = 404
+        }
+    }
+}

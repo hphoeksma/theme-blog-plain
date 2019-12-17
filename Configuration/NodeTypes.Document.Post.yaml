@@ -24,3 +24,11 @@ Theme.Blog.Plain:Document.Post:
       validation:
         'Neos.Neos/Validation/DateTimeValidator': []
         'Neos.Neos/Validation/NotEmptyValidator': []
+    enableCommenting:
+      type: boolean
+      defaultValue: true
+      ui:
+        label: i18n
+        inspector:
+          group: 'document'
+          position: 300

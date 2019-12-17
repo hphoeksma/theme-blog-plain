@@ -1,22 +1,3 @@
-inline: &inline
-  placeholder: i18n
-  autoparagraph: true
-  'format':
-    'strong': true
-    'em': true
-    'u': true
-    'sub': true
-    'sup': true
-    'del': true
-    'p': true
-    'h1': false
-    'h2': false
-    'h3': false
-    'pre': true
-    'removeFormat': true
-  'link':
-    'a': true
-
 Theme.Blog.Plain:Document.Home:
   superTypes:
     Theme.Blog.Plain:Document: true
@@ -29,6 +10,8 @@ Theme.Blog.Plain:Document.Home:
   childNodes:
     footer:
       type: Neos.Neos:ContentCollection
+    notfound:
+      type: Theme.Blog.Plain:Document.NotFoundPage
   properties:
     logo:
       type: Neos\Media\Domain\Model\ImageInterface
@@ -39,11 +22,33 @@ Theme.Blog.Plain:Document.Home:
           group: 'theme'
     blogName:
       type: string
+      defaultValue: ''
       ui:
         inlineEditable: true
-        <<: *inline
+        inline: &inline
+          editorOptions:
+            formatting:
+              strong: true
+              em: true
+              sub: true
+              sup: true
+              p: false
+              h1: false
+              h2: false
+              h3: false
+              pre: false
+              removeFormat: true
+              table: false
+              a: true
+              ol: false
+              ul: false
+              underline: true
+              strikethrough: true
+            autoparagraph: false
+            placeholder: i18n
     introduction:
       type: string
+      defaultValue: ''
       ui:
         inlineEditable: true
-        <<: *inline
+        inline: *inline

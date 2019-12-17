@@ -1,5 +1,5 @@
-prototype(Theme.Blog.Plain:Prototype.Profile) < prototype(Neos.Fusion:Component) {
-  @context.node = ${q(site).get(0)}
+prototype(Theme.Blog.Plain:Prototype.Profile) < prototype(Neos.Neos:ContentComponent) {
+  @context.node = ${site}
 
   homeUri = Neos.Neos:NodeUri {
     node = ${site}
