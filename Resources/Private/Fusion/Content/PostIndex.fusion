@@ -16,7 +16,7 @@ prototype(Theme.Blog.Plain:Content.PostIndex) < prototype(Neos.Fusion:Component)
     mode = 'cached'
     entryTags {
       1 = ${Neos.Caching.nodeTag(node)}
-      1 = ${Neos.Caching.nodeTypeTag('Theme.Blog.Plain:Document.Post', node)}
+      2 = ${Neos.Caching.nodeTypeTag('Theme.Blog.Plain:Document.Post', node)}
     }
   }
 }
@@ -27,9 +27,13 @@ prototype(Theme.Blog.Plain:ProtoType.PostIndexItem) < prototype(Neos.Fusion:Comp
   imageUri = Neos.Neos:ImageUri {
     asset = ${q(node).children('main').find('[instanceof Theme.Blog.Plain:Content.Image]').first().property('image')}
   }
+
   nodeUri = Neos.Neos:NodeUri {
     node = ${node}
   }
+
+  intro = ${q(node).children('main').find('[instanceof Theme.Blog.Plain:Content.Lead]').get() ? q(node).children('main').find('[instanceof Theme.Blog.Plain:Content.Lead]').first().property('text') : q(node).children('main').find('[instanceof Theme.Blog.Plain:Content.Text],[instanceof Theme.Blog.Plain:Content.TextWithImage]').first().property('text')}
+  intro.@process.maxLength = ${String.crop(String.stripTags(value), 200, '&hellip;')}
   class = Neos.Fusion:Join {
     1 = "article__header"
     2 = "has-gradient"
@@ -44,12 +48,9 @@ prototype(Theme.Blog.Plain:ProtoType.PostIndexItem) < prototype(Neos.Fusion:Comp
                        attributes.class={props.class} attributes.data-image={props.imageUri}>
         <h1>{node.label}</h1>
       </Neos.Fusion:Tag>
-      <div class="article__intro">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid assumenda, commodi corporis dolore
-          earum esse eveniet in iste itaque, mollitia nihil obcaecati perferendis perspiciatis possimus quae,
-          quia
-          quo rem saepe similique unde velit voluptate voluptatem!</p>
-      </div>
+      <p class="article__intro">
+        {props.intro}
+      </p>
       <a href={props.nodeUri} class="article__read-more"><span>continue reading</span> <i
         data-feather="arrow-right"></i></a>
     </article>

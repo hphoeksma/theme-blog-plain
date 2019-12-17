@@ -46,6 +46,14 @@ body {
   padding: 2rem;
   flex-grow: 1;
 }
+.main .neos-contentcollection > * {
+  max-width: var(--main-width);
+}
+.main .neos-contentcollection blockquote,
+.main blockquote {
+  max-width: 400px;
+  margin: 2rem auto 2rem 200px;
+}
 
 .footer {
   width: 100vw;
@@ -198,6 +206,10 @@ cite::before {
 }
 .has-gradient > * {
   z-index: 1;
+}
+
+.large-text {
+  font-size: 1.125rem;
 }
 
 .sidebar {
@@ -363,7 +375,7 @@ cite::before {
   font-family: "Merriweather", serif;
 }
 .blog__article .article__lead {
-  font-size: 1.1rem;
+  font-size: 1.125rem;
   color: var(--blog__article-lead-color);
 }
 .blog__article .article__footer {
@@ -466,14 +478,6 @@ cite::before {
 @media (min-width: 769px) {
   .blog__article .article h1, .blog__article .article__footer {
     max-width: var(--main-width);
-  }
-  .blog__article .neos-contentcollection > * {
-    max-width: var(--main-width);
-  }
-  .blog__article .neos-contentcollection blockquote,
-.blog__article blockquote {
-    max-width: 400px;
-    margin: 2rem auto 2rem 200px;
   }
   .blog__article .is-featured {
     margin: 0 0 1rem;

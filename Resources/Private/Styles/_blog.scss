@@ -9,7 +9,7 @@
     .article {
 
       &__lead {
-        font-size: 1.1rem;
+        font-size: 1.125rem;
         color: var(--blog__article-lead-color);
       }
 
@@ -146,18 +146,6 @@
         &__footer {
           max-width: var(--main-width);
         }
-      }
-
-      .neos-contentcollection {
-        > * {
-          max-width: var(--main-width);
-        }
-      }
-
-      .neos-contentcollection blockquote,
-      blockquote {
-        max-width: 400px;
-        margin: 2rem auto 2rem 200px;
       }
 
       .is-featured {

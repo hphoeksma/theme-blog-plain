@@ -1,44 +1,48 @@
 prototype(Theme.Blog.Plain:Document.Post) < prototype(Theme.Blog.Plain:Document.Page) {
-  body.content = Neos.Fusion:Component {
-    header = ${q(documentNode).property('title')}
-    content = Neos.Neos:PrimaryContent {
-      nodePath = 'main'
-    }
-    publicationDate = ${Date.format(q(documentNode).property('publicationDateTime'), 'd-m-Y')}
-    publicationDateLead = ${Translation.translate('post.publicationDateLead', null, [], 'Main', 'Theme.Blog.Plain')}
-    intenseDebateSiteAcct = ${Configuration.setting('Theme.Blog.Plain.commenting.intenseDebateSiteAcct')}
-    disqusEmbed = ${Configuration.setting('Theme.Blog.Plain.commenting.disqusEmbed')}
-    enableCommenting = ${q(node).property('enableCommenting') && (this.intenseDebateSiteAcct || this.disqusEmbed)}
-    nodeUri = Neos.Neos:NodeUri {
-      absolute = true
-      node = ${documentNode}
-    }
-    node = ${node}
-
-    # Rendering
-    renderer = afx`
-      <article class="blog__article">
-        <h1 class="article__header">{props.header}</h1>
-        {props.content}
-        <footer class="article__footer">
-          <p class="article__meta">{props.publicationDateLead} {props.publicationDate}</p>
-          <Theme.Blog.Plain:Prototype.ShareLinks/>
-        </footer>
-      </article>
-      <div class="blog__commenting" @if.hasCommenting={props.enableCommenting}>
-        <div @if.hasIntenseDebate={props.intenseDebateSiteAcct}>
-          <script>
-            var idcomments_acct = '{props.intenseDebateSiteAcct}';
-            var idcomments_post_id;
-            var idcomments_post_url;
-          </script>
-          <span id="IDCommentsPostTitle" style="display:none"></span>
-          <script type='text/javascript' src='https://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
-        </div>
-        <div id="disqus_thread" data-identifier={props.node.identifier} data-embed={props.disqusEmbed}
-             @if.hasDisqus={props.disqusEmbed}></div>
-      </div>
-    `
-  }
+  body.content = Theme.Blog.Plain:Prototype.Post
 }
 
+prototype(Theme.Blog.Plain:Prototype.Post) < prototype(Neos.Neos:ContentComponent) {
+  @context.documentNode = ${documentNode}
+  @context.node = ${node}
+  header = ${q(documentNode).property('title')}
+  content = Neos.Neos:PrimaryContent {
+    @context.node = ${documentNode}
+    nodePath = 'main'
+  }
+  publicationDate = ${Date.format(q(documentNode).property('publicationDateTime'), 'd-m-Y')}
+  publicationDateLead = ${Translation.translate('post.publicationDateLead', null, [], 'NodeTypes/Document/Post', 'Theme.Blog.Plain')}
+  intenseDebateSiteAcct = ${Configuration.setting('Theme.Blog.Plain.commenting.intenseDebateSiteAcct')}
+  disqusEmbed = ${Configuration.setting('Theme.Blog.Plain.commenting.disqusEmbed')}
+  enableCommenting = ${q(documentNode).property('enableCommenting') && (this.intenseDebateSiteAcct || this.disqusEmbed)}
+  nodeUri = Neos.Neos:NodeUri {
+    absolute = true
+    node = ${documentNode}
+  }
+  node = ${node}
+
+  # Rendering
+    renderer = afx`
+    <article class="blog__article">
+      <h1 class="article__header">{props.header}</h1>
+      {props.content}
+      <footer class="article__footer">
+        <p class="article__meta">{props.publicationDateLead} {props.publicationDate}</p>
+        <Theme.Blog.Plain:Prototype.ShareLinks/>
+      </footer>
+    </article>
+    <div class="blog__commenting" @if.hasCommenting={props.enableCommenting}>
+      <div @if.hasIntenseDebate={props.intenseDebateSiteAcct}>
+        <script>
+          var idcomments_acct = '{props.intenseDebateSiteAcct}';
+          var idcomments_post_id;
+          var idcomments_post_url = '{props.nodeUri}';
+        </script>
+        <span id="IDCommentsPostTitle" style="display:none"></span>
+        <script type='text/javascript' src='https://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
+      </div>
+      <div id="disqus_thread" data-identifier={props.node.identifier} data-embed={props.disqusEmbed} data-uri={props.nodeUri}
+           @if.hasDisqus={props.disqusEmbed}></div>
+    </div>
+  `
+}

@@ -1,9 +1,7 @@
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
   <file source-language="en" product-name="Theme.Blog.Plain" datatype="plaintext" original="" target-language="nl">
     <body>
-      <trans-unit id="post.publicationDateLead">
-        <source>Published at</source>
-      </trans-unit>
+
     </body>
   </file>
 </xliff>

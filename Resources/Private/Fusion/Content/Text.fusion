@@ -2,10 +2,27 @@
 # "Text" element
 #
 prototype(Theme.Blog.Plain:Content.Text) < prototype(Neos.Neos:ContentComponent) {
-  text = Neos.Neos:Editable {
-    property = 'text'
+
+  # Props
+  text = Neos.Fusion:Case {
+    large {
+      condition = ${q(node).property('large')}
+      renderer = Neos.Neos:Editable {
+        property = 'text'
+        @process.wrap = ${'<div class="large-text">' + value + '</div>'}
+      }
+    }
+
+    default {
+      condition = true
+      renderer = Neos.Neos:Editable {
+        property = 'text'
+      }
+    }
   }
 
+
+  # Rendering
   renderer = afx`
     {props.text}
   `

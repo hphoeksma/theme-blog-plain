@@ -2,7 +2,16 @@ Theme.Blog.Plain:Content.Text:
   superTypes:
     'Neos.Neos:Content': true
     'Neos.NodeTypes.BaseMixins:TextMixin': true
+    Theme.Blog.Plain:Mixin.Theme: true
   ui:
     label: i18n
     icon: 'fas fa-align-justify'
     position: 200
+  properties:
+    large:
+      type: boolean
+      ui:
+        label: i18n
+        reloadIfChanged: true
+        inspector:
+          group: theme

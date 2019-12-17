@@ -2,9 +2,12 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
 	<file original="" product-name="Theme.Blog.Plain" source-language="en" datatype="plaintext">
 		<body>
-            <trans-unit id="ui.label">
-                <source>Text</source>
-            </trans-unit>
+      <trans-unit id="ui.label">
+        <source>Text</source>
+      </trans-unit>
+      <trans-unit id="properties.large">
+        <source>Large text</source>
+      </trans-unit>
 		</body>
 	</file>
 </xliff>

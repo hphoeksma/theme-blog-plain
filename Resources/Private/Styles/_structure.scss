@@ -12,6 +12,18 @@ body {
   width: 100vw;
   padding: 2rem;
   flex-grow: 1;
+
+  .neos-contentcollection {
+    > * {
+      max-width: var(--main-width);
+    }
+  }
+
+  .neos-contentcollection blockquote,
+  blockquote {
+    max-width: 400px;
+    margin: 2rem auto 2rem 200px;
+  }
 }
 
 .footer {

@@ -27,5 +27,6 @@
               ul: true
               underline: true
               strikethrough: true
+              center: true
             autoparagraph: true
             placeholder: i18n

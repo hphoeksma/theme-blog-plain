@@ -48,7 +48,7 @@ initializeDataClose();
 
 if (document.querySelector('#disqus_thread') && document.querySelector('#disqus_thread').dataset.identifier && document.querySelector('#disqus_thread').dataset.embed) {
   var disqus_config = function () {
-    this.page.url = window.location.href;
+    this.page.url = document.querySelector('#disqus_thread').dataset.uri;
     this.page.identifier = document.querySelector('#disqus_thread').dataset.identifier;
   };
   (function () {
