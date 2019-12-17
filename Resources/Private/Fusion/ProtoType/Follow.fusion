@@ -12,11 +12,15 @@ prototype(Theme.Blog.Plain:Prototype.Follow) < prototype(Neos.Neos:ContentCompon
   github = ${q(site).property('follow.github')}
   medium = ${q(site).property('follow.medium')}
   strava = ${q(site).property('follow.strava')}
-  strava.@process.wrap = ${'https://www.strava.com/athletes/' + value}
+  strava {
+    @if.hasValue = ${q(site).property('follow.strava')}
+    @process.wrap = ${'https://www.strava.com/athletes/' + value}
+  }
 
   stravaIcon = Neos.Fusion:ResourceUri {
     path = 'resource://Theme.Blog.Plain/Public/images/strava.png'
   }
+
   text = Neos.Neos:Editable {
     property = 'text'
   }
