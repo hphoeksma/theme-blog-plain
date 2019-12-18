@@ -1,15 +1,20 @@
 ##
 # "Text" element
 #
-prototype(Theme.Blog.Plain:Content.LastPost) < prototype(Theme.Blog.Plain:Prototype.Post) {
-  @context.documentNode = ${q(site).find('[instanceof Theme.Blog.Plain:Document.Post]').sort('publicationDateTime', 'DESC').get(0)}
-  @contex.node = ${documentNode}
-
-  @cache {
-    mode = 'cached'
-    entryTags {
-      1 = ${Neos.Caching.nodeTag(node)}
-      2 = ${Neos.Caching.nodeTypeTag('Theme.Blog.Plain:Document.Post', node)}
+prototype(Theme.Blog.Plain:Content.LastPost) < prototype(Neos.Fusion:Component) {
+  lastPost = Theme.Blog.Plain:Prototype.Post {
+    @context.documentNode = ${q(site).find('[instanceof Theme.Blog.Plain:Document.Post]').sort('publicationDateTime', 'DESC').get(0)}
+    @context.node = ${documentNode}
+    @cache {
+      mode = 'cached'
+      entryTags {
+        1 = ${Neos.Caching.nodeTag(node)}
+        2 = ${Neos.Caching.nodeTypeTag('Theme.Blog.Plain:Document.Post', node)}
+      }
     }
   }
+
+  renderer = afx`
+    <div class="blog__last-post">{props.lastPost}</div>
+  `
 }

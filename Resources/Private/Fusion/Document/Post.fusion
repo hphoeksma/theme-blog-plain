@@ -2,7 +2,7 @@ prototype(Theme.Blog.Plain:Document.Post) < prototype(Theme.Blog.Plain:Document.
   body.content = Theme.Blog.Plain:Prototype.Post
 }
 
-prototype(Theme.Blog.Plain:Prototype.Post) < prototype(Neos.Neos:ContentComponent) {
+prototype(Theme.Blog.Plain:Prototype.Post) < prototype(Neos.Fusion:Component) {
   @context.documentNode = ${documentNode}
   @context.node = ${node}
   header = ${q(documentNode).property('title')}

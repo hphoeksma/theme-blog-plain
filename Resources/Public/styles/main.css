@@ -495,6 +495,19 @@ cite::before {
   .blog__index > * {
     flex-basis: calc(50% - 3rem);
   }
+
+  .main .neos-contentcollection .blog__last-post {
+    max-width: calc(100% - 2rem);
+  }
+  .main .neos-contentcollection .blog__last-post .neos-contentcollection > * {
+    max-width: var(--main-width);
+  }
+  .main .neos-contentcollection .blog__last-post .neos-contentcollection blockquote {
+    max-width: 400px;
+  }
+  .main .neos-contentcollection .blog__last-post .blog__article .is-featured {
+    min-width: calc(100% + 4rem);
+  }
 }
 .notifications .notification {
   background: var(--notification-background-color);

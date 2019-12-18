@@ -141,7 +141,6 @@
   .blog {
     &__article {
       .article {
-
         h1,
         &__footer {
           max-width: var(--main-width);
@@ -168,6 +167,22 @@
       > * {
         flex-basis: calc(50% - 3rem);
       }
+    }
+  }
+
+  .main .neos-contentcollection .blog__last-post {
+    max-width: calc(100% - 2rem);
+
+    .neos-contentcollection > * {
+      max-width: var(--main-width);
+    }
+
+    .neos-contentcollection blockquote {
+      max-width: 400px;
+    }
+
+    .blog__article .is-featured {
+      min-width: calc(100% + 4rem);
     }
   }
 }

@@ -47,12 +47,10 @@ prototype(Theme.Blog.Plain:Document.Page) < prototype(Neos.Neos:Page) {
 
     breadcrumbs = Theme.Blog.Plain:Prototype.Breadcrumbs
 
+
     content = Neos.Neos:PrimaryContent {
       nodePath = "main"
     }
-
-//    image = ${q(site).property('logo').mediaType}
-//    image.@process.debug = Neos.Fusion:Debug
 
     # Rendering
     renderer = afx`
