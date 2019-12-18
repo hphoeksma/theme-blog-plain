@@ -5,6 +5,9 @@
       <trans-unit id="post.publicationDateLead">
         <source>Published at</source>
       </trans-unit>
+      <trans-unit id="post.permalinkText">
+        <source>Permalink</source>
+      </trans-unit>
       <trans-unit id="ui.label">
         <source>Blog post</source>
       </trans-unit>

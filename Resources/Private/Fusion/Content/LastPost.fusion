@@ -5,6 +5,8 @@ prototype(Theme.Blog.Plain:Content.LastPost) < prototype(Neos.Fusion:Component) 
   lastPost = Theme.Blog.Plain:Prototype.Post {
     @context.documentNode = ${q(site).find('[instanceof Theme.Blog.Plain:Document.Post]').sort('publicationDateTime', 'DESC').get(0)}
     @context.node = ${documentNode}
+    @context.showPermalink = true
+
     @cache {
       mode = 'cached'
       entryTags {

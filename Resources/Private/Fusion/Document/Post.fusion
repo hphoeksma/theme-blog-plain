@@ -5,13 +5,13 @@ prototype(Theme.Blog.Plain:Document.Post) < prototype(Theme.Blog.Plain:Document.
 prototype(Theme.Blog.Plain:Prototype.Post) < prototype(Neos.Fusion:Component) {
   @context.documentNode = ${documentNode}
   @context.node = ${node}
+  @context.showPermalink = false
   header = ${q(documentNode).property('title')}
   content = Neos.Neos:PrimaryContent {
     @context.node = ${documentNode}
     nodePath = 'main'
   }
   publicationDate = ${Date.format(q(documentNode).property('publicationDateTime'), 'd-m-Y')}
-  publicationDateLead = ${Translation.translate('post.publicationDateLead', null, [], 'NodeTypes/Document/Post', 'Theme.Blog.Plain')}
   intenseDebateSiteAcct = ${Configuration.setting('Theme.Blog.Plain.commenting.intenseDebateSiteAcct')}
   disqusEmbed = ${Configuration.setting('Theme.Blog.Plain.commenting.disqusEmbed')}
   enableCommenting = ${q(documentNode).property('enableCommenting') && (this.intenseDebateSiteAcct || this.disqusEmbed)}
@@ -27,8 +27,11 @@ prototype(Theme.Blog.Plain:Prototype.Post) < prototype(Neos.Fusion:Component) {
       <h1 class="article__header">{props.header}</h1>
       {props.content}
       <footer class="article__footer">
-        <p class="article__meta">{props.publicationDateLead} {props.publicationDate}</p>
-        <Theme.Blog.Plain:Prototype.ShareLinks/>
+        <p class="article__meta">
+          {Translation.translate('post.publicationDateLead', null, [], 'NodeTypes/Document/Post', 'Theme.Blog.Plain')} {props.publicationDate}
+          <a href={props.nodeUri} class="article__permalink" @if.isHome={showPermalink}>{Translation.translate('post.permalinkText', null, [], 'NodeTypes/Document/Post', 'Theme.Blog.Plain')}</a>
+        </p>
+        <Theme.Blog.Plain:Prototype.ShareLinks documentNode={documentNode}/>
       </footer>
     </article>
     <div class="blog__commenting" @if.hasCommenting={props.enableCommenting}>
