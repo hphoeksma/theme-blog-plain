@@ -55,12 +55,4 @@ prototype(Theme.Blog.Plain:ProtoType.PostIndexItem) < prototype(Neos.Fusion:Comp
         data-feather="arrow-right"></i></a>
     </article>
   `
-
-  @cache {
-    mode = 'cached'
-    entryTags {
-      1 = ${Neos.Caching.nodeTag(node)}
-      1 = ${Neos.Caching.nodeTypeTag('Theme.Blog.Plain:Document.Post', node)}
-    }
-  }
 }
