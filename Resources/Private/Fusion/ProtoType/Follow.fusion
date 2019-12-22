@@ -18,7 +18,7 @@ prototype(Theme.Blog.Plain:Prototype.Follow) < prototype(Neos.Neos:ContentCompon
   }
 
   stravaIcon = Neos.Fusion:ResourceUri {
-    path = 'resource://Theme.Blog.Plain/Public/images/strava.png'
+    path = 'resource://Theme.Blog.Plain/Public/assets/strava.png'
   }
 
   text = Neos.Neos:Editable {
@@ -27,9 +27,9 @@ prototype(Theme.Blog.Plain:Prototype.Follow) < prototype(Neos.Neos:ContentCompon
 
   # Rendering
     renderer = afx`
-    <div class="socialmedia grayscale">
+    <div class="follow">
       <p @if.has={props.text}>{props.text}</p>
-      <div class="socialmedia__list a2a_kit a2a_kit_size_24 a2a_default_style a2a_follow">
+      <div class="follow__list a2a_kit a2a_kit_size_24 a2a_default_style a2a_follow">
         <a class="a2a_button_twitter" data-a2a-follow={props.twitter} @if.has={props.twitter}></a>
         <a class="a2a_button_facebook" data-a2a-follow={props.facebook} @if.has={props.facebook}></a>
         <a class="a2a_button_instagram" data-a2a-follow={props.instagram} @if.has={props.instagram}></a>

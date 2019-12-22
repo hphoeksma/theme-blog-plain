@@ -1,13 +1,93 @@
 @import url('https://fonts.googleapis.com/css?family=Lato|Merriweather&display=swap');
 
 :root {
+  font-family: var(--default-font-family);
   font-size: 16px;
   line-height: 1.75;
-  font-family: "Lato", sans-serif;
   font-weight: 300;
   color: var(--font-color);
-  //text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
-  -webkit-font-smoothing: antialiased;
+}
+
+figure {
+  margin: 0 0 1rem;
+  display: flex;
+  flex-direction: column;
+  picture {
+    min-width: 100%;
+  }
+  img {
+    min-width: 100%;
+    max-width: 100%;
+  }
+  figcaption {
+    font-size: 0.85rem;
+    line-height: 1;
+    margin-top: 0.5rem;
+    color: var(--font-color-light);
+  }
+}
+
+blockquote {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 1.25rem;
+  font-style: italic;
+  position: relative;
+
+  &::after {
+    content: '\201D';
+    color: var(--font-color-dimmed);
+    font-size: 8rem;
+    font-style: italic;
+    font-weight: bold;
+    opacity: 0.5;
+    position: absolute;
+    top: -2rem;
+    left: -2rem;
+    z-index: 0;
+  }
+
+  > * {
+    z-index: 1;
+  }
+
+  cite {
+    align-self: flex-end;
+    font-style: normal;
+    color: var(--font-color-light);
+    font-family: var(--alternative-font-family);
+    &::before {
+      content: '—';
+      margin-right: 0.35rem;
+    }
+  }
+}
+
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--alternative-font-family);
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 1.75rem;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 1rem;
 }
 
 a {
@@ -17,73 +97,5 @@ a {
     color: var(--font-color);
     text-decoration: none;
     border-bottom: 1px solid var(--font-color-dimmed);
-  }
-}
-
-h2, h3, h4, h5, h6 {
-  margin-bottom: 0;
-
-  + p {
-    margin-top: 0;
-  }
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-figure {
-  margin: 0 0 2rem;
-}
-
-figcaption {
-  font-size: .85rem;
-  line-height: 1;
-  margin-top: .5rem;
-  color: var(--font-color-light);
-}
-
-picture {
-  overflow: auto;
-  display: block;
-
-  img {
-    display: block;
-  }
-}
-
-blockquote {
-  font-size: 1.25rem;
-  font-style: italic;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  max-width: 65%;
-  text-align: center;
-
-  &::before {
-    content: '\201D';
-    color: var(--font-color-dimmed);
-    font-size: 8rem;
-    font-style: italic;
-    font-weight: bold;
-    opacity: .5;
-    position: absolute;
-    top: -4rem;
-    left: -2rem;
-  }
-}
-
-cite {
-  font-style: normal;
-  font-weight: bold;
-  font-size: 1rem;
-  display: flex;
-  align-self: flex-end;
-
-  &::before {
-    content: '—';
-    margin-right: .35rem;
   }
 }

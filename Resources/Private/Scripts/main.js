@@ -31,7 +31,6 @@ const initializeDataImages = () => {
   });
 };
 
-feather.replace();
 initializeDataImages();
 initializeDataToggle();
 initializeDataClose();

@@ -7,7 +7,7 @@ prototype(Theme.Blog.Plain:Prototype.Breadcrumbs) < prototype(Neos.Fusion:Compon
   renderer = afx`
     <nav class="breadcrumbs">
       <Neos.Fusion:Loop items={Array.reverse(props.items)}>
-        <Neos.Neos:NodeLink node={item.node} class={item.state}>{item.label}</Neos.Neos:NodeLink>
+        <Neos.Neos:NodeLink node={item.node} class={item.state}>{item.label}</Neos.Neos:NodeLink> <span>/</span>
       </Neos.Fusion:Loop>
     </nav>
   `

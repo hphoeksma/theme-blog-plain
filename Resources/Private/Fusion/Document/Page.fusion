@@ -35,38 +35,54 @@ prototype(Theme.Blog.Plain:Document.Page) < prototype(Neos.Neos:Page) {
       `
     }
 
-    javascripts = Neos.Fusion:Component {
-      renderer = afx`
-        <script src="https://unpkg.com/feather-icons"></script>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-      `
-    }
   }
 
   body = Neos.Fusion:Component {
 
     breadcrumbs = Theme.Blog.Plain:Prototype.Breadcrumbs
 
-
     content = Neos.Neos:PrimaryContent {
+      prototype(Neos.Neos:ContentCollection) {
+        tagName = 'section'
+        content.@process.wrap = ${'<article>' + value + '</article>'}
+      }
       nodePath = "main"
     }
 
     # Rendering
     renderer = afx`
-      <button data-toggle="sidebar" class="sidebar__handle"><i data-feather="menu"></i></button>
+      <div class="container">
+        <main class="main" role="main">
+          <button data-toggle="sidebar" class="sidebar__handle">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewbox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-menu"
+            >
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+          {props.breadcrumbs}
+          {props.content}
+        </main>
+        <footer class="footer">
+          <Theme.Blog.Plain:Prototype.Footer/>
+        </footer>
+      </div>
       <aside class="sidebar" data-identifier="sidebar">
         <Theme.Blog.Plain:Prototype.Profile/>
         <Theme.Blog.Plain:Prototype.Menu/>
         <Theme.Blog.Plain:Prototype.Follow/>
       </aside>
-      <main class="main" role="main">
-        {props.breadcrumbs}
-        {props.content}
-      </main>
-      <footer class="footer">
-        <Theme.Blog.Plain:Prototype.Footer/>
-      </footer>
     `
 
     javascripts = Neos.Fusion:Component {

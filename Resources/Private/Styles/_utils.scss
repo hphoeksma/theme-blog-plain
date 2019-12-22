@@ -1,46 +1,4 @@
-%is-rounded {
-  border-radius: 50%;
-
-  + figcaption {
-    text-align: center;
-  }
-}
-
-.is-rounded {
-  @extend %is-rounded;
-}
-
-.is-featured {
-  margin: 0 -2rem 1rem;
-
-  figcaption {
-    margin-left: 2rem;
-  }
-
-  @media (min-width: 769px) {
-    min-width: calc(100% + 2rem);
-    img {
-      min-width: 100%;
-    }
-    figcaption {
-      margin-left: 0;
-    }
-  }
-}
-
-%inline-list {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.is-inline-list {
-  @extend %inline-list;
-}
-
-.float {
+.align {
   &-left {
     float: left;
     margin-right: 2rem;
@@ -52,28 +10,42 @@
   }
 
   &-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: block;
+    text-align: center;
   }
+}
+
+%is-rounded {
+  img {
+    border-radius: 50%;
+  }
+
+  + figcaption {
+    text-align: center;
+  }
+}
+
+.is-rounded {
+  @extend %is-rounded;
 }
 
 .has-gradient {
   position: relative;
+  display: flex;
 
   &::after {
     content: '';
-    display: block;
     position: absolute;
     height: 100%;
     width: 100%;
     top: 0;
     left: 0;
-    background: linear-gradient(to right bottom, rgba(0, 0, 0, .1), rgba(0, 0, 0, .5));
-  }
-
-  > * {
-    z-index: 1;
+    background: linear-gradient(
+      to right bottom,
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.5)
+    );
+    z-index: 2;
   }
 }
 

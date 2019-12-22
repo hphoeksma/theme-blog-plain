@@ -1,0 +1,93 @@
+@media (max-width: 1040px) {
+  /* @docs we switch to one column */
+  .container {
+    grid-template-columns: 1fr;
+    gap: 0;
+
+    .main > section article {
+      > * {
+
+        grid-column: 1 / -2;
+      }
+    }
+
+    .blog__commenting {
+      > * {
+        grid-column: 1 / -2;
+      }
+    }
+    .blog__index {
+      grid-column: 1 / -2;
+
+      .article:nth-child(odd),
+      .article:nth-child(even){
+        grid-column: 1 / -2;
+      }
+    }
+  }
+
+
+  /* @docs we hide the sidebar and show a handler button */
+  .sidebar {
+    transform: translateX(-85vw);
+    width: 85vw;
+    transition: transform 0.8s ease-in-out;
+
+    &.is-active {
+      transform: translateX(0);
+      z-index: 10;
+
+      .menu {
+        border: none;
+        margin-top: 0;
+
+        a {
+          color: var(--sidebar-open-font-color);
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .container .main .sidebar__handle {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    position: fixed;
+    height: 2rem;
+    width: 2rem;
+    top: 2rem;
+    right: 3rem;
+  }
+
+  /* @docs let's make some content elements play 😎 */
+  .container .main > section article > .neos-contentcollection {
+    .is-featured,
+    .align-right,
+    .align-left,
+    .align-center {
+      float: none;
+      margin-right: 0;
+      margin-left: 0;
+
+      img {
+        min-width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    .is-featured {
+      margin-left: -2rem;
+      margin-right: -2rem;
+      width: calc(100% + 4rem);
+    }
+
+    figcaption {
+      padding-left: 0.5rem;
+    }
+
+    blockquote {
+      grid-column: 1 / -1;
+    }
+  }
+}

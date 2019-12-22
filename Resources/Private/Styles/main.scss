@@ -1,60 +1,210 @@
 html {
   box-sizing: border-box;
+  height: 100%;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
 :root {
   // Variables
+  --default-background-color: white;
+  --default-font-family: 'Merriweather', serif;
+  --alternative-font-family: 'Lato', sans-serif;
   --font-color: #444;
-  --font-color-light: #888;
-  --font-color-dimmed: #E8E8E8;
-  --main-width: 800px;
+  --font-color-light: #6a6a6a;
+  --font-color-dimmed: #e8e8e8;
 
   // Sidebar
-  --sidebar-background-color: #404040;
-  --sidebar-font-color: #fff;
+  --sidebar-default-background-color: white;
+  --sidebar-open-background-color: #404040;
+  --sidebar-default-font-color: var(--font-color);
+  --sidebar-open-font-color: #fff;
   --sidebar-border-color: #333333;
-  --sidebar-handle-background-color: rgba(255, 255, 255, .2);
+  --sidebar-handle-background-color: rgba(255, 255, 255, 0.2);
+  --sidebar-width: 20vw;
+
+  // Main
+  --main-background-color: var(--default-background-color);
+  --breadcrumbs-font-color: var(--font-color-light);
+
+  // Footer
+  --footer-background-color: var(--default-background-color);
+  --footer-font-color: var(--font-color-light);
 
   // Blog
-  --blog__article-footer-border-color: rgba(51, 51, 51, .2);
+  --blog__article-footer-border-color: rgba(51, 51, 51, 0.2);
   --blog__article-lead-color: #333;
-
-  // Notifications
-  --notification-background-color: #E8E8E8;
-  --notification-color: #2F2F2F;
-  --notification-info-background-color: #80CFEF;
-  --notification-info-color: #1A2A30;
-  --notification-warning-background-color: #FAB973;
-  --notification-warning-color: #322517;
-  --notification-danger-background-color: #F48084;
-  --notification-danger-color: #623435;
-  --notification-success-background-color: #A3F7B5;
-  --notification-success-color: #3C5A42;
 }
 
-// Structure
-@import "structure";
+body {
+  margin: 0;
+  min-height: 100%;
+}
 
-// Typography
-@import "typography";
+/* @docs load all partials */
+@import '_typography.scss';
+@import '_profile.scss';
+@import '_menu.scss';
+@import '_follow.scss';
+@import '_utils.scss';
+@import '_blog.scss';
 
-// Utils
-@import "utils";
+/*
+    @docs
+    =====
+    we will be re-using the same grid a couple of times,
+    mostly for consistency sake - but we are aware this
+    is a bit confusing maybe 💩
+*/
+%main-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(2rem, 1fr));
+}
 
-// Layout components
-@import "sidebar";
-@import "footer";
+.container {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+  grid-template-rows: 1fr auto;
+  gap: 1rem;
+  min-height: 100vh;
 
-// Sidebar components
-@import "profile";
-@import "socialmedia";
-@import "menu";
+  &.gapless {
+    grid-gap: 0;
+  }
 
-// Specific components
-@import "breadcrumbs";
-@import "blog";
-@import "notifications";
+  .main {
+    background-color: var(--main-background-color);
+    grid-column: 2;
+    grid-row: 1;
+
+    /* @docs a little top and bottom so we have some room there */
+    padding: 2rem 0;
+
+    @extend %main-grid;
+
+    .breadcrumbs {
+      grid-column: 2 / 18;
+      font-family: var(--alternative-font-family);
+      display: flex;
+      align-items: center;
+
+      a {
+        margin: 0 0.5rem;
+        border: none;
+        color: var(--breadcrumbs-font-color);
+        font-style: italic;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+
+      span:last-child {
+        display: none;
+      }
+    }
+
+    .sidebar__handle {
+      display: none;
+      background: var(--sidebar-handle-background-color);
+      border: none;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+    }
+
+    > section {
+      grid-column: 2 / -1;
+
+      article {
+        @extend %main-grid;
+
+        > * {
+          grid-column: 1 / 24;
+        }
+
+        > .neos-contentcollection {
+          grid-column: 1 / -1;
+
+          @extend %main-grid;
+
+          width: calc(100% - 2rem);
+
+          > * {
+            grid-column: 1 / 24;
+          }
+
+          .is-featured {
+            grid-column: 1 / -1;
+            margin-right: -2rem;
+          }
+
+          .align-left {
+            margin-left: -2rem;
+          }
+
+          .align-right {
+            margin-right: -2rem;
+          }
+
+          blockquote {
+            grid-column: 3 / 18;
+          }
+        }
+      }
+    }
+  }
+
+  .footer {
+    background-color: var(--footer-background-color);
+    color: var(--footer-font-color);
+    font-size: 0.85rem;
+    padding: 1rem;
+    grid-column: 2;
+    grid-row: 2;
+
+    @extend %main-grid;
+
+    > * {
+      grid-column: 1 / 24;
+      text-align: center;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+}
+
+.sidebar {
+  background-color: var(--sidebar-default-background-color);
+  color: var(--sidebar-font-color);
+  width: var(--sidebar-width);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-items: flex-start;
+  overflow-y: auto;
+
+  a {
+    border: none;
+  }
+
+  &.is-active {
+    background-color: var(--sidebar-open-background-color);
+    color: var(--sidebar-open-font-color);
+  }
+}
+
+@import '_media-queries.scss';

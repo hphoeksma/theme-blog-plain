@@ -21,7 +21,7 @@ prototype(Theme.Blog.Plain:Content.Fragment.Image) < prototype(Neos.Fusion:Compo
   title = ${q(node).property('title')}
   class = Neos.Fusion:Join {
     isFeatured = ${q(node).property('isFeatured') ? 'is-featured' : null}
-    float = ${q(node).property('float') ? 'float-' + q(node).property('float') : null}
+    float = ${q(node).property('align') ? 'align-' + q(node).property('align') : null}
     @glue = ' '
     @process.trimWhiteSpace = ${String.trim(value)}
   }
