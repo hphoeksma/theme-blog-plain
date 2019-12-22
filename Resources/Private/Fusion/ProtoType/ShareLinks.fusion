@@ -14,14 +14,14 @@ prototype(Theme.Blog.Plain:Prototype.ShareLinks) < prototype(Neos.Fusion:Compone
   }
 
   # Rendering
-    renderer = afx`
+  renderer = afx`
     <div class="article__share">
       <div class="a2a_kit a2a_kit_size_24 a2a_default_style" data-a2a-url={props.nodeUri}>
-        <a class="a2a_button_facebook" @if.hasFacebook={props.facebook}></a>
-        <a class="a2a_button_twitter" @if.hasFacebook={props.twitter}></a>
-        <a class="a2a_button_linkedin" @if.hasFacebook={props.linkedin}></a>
-        <a class="a2a_button_reddit" @if.hasFacebook={props.reddit}></a>
-        <a class="a2a_button_whatsapp" @if.hasFacebook={props.whatsapp}></a>
+        <a rel="noopener noreferrer" class="a2a_button_facebook" @if.hasFacebook={props.facebook}></a>
+        <a rel="noopener noreferrer" class="a2a_button_twitter" @if.hasFacebook={props.twitter}></a>
+        <a rel="noopener noreferrer" class="a2a_button_linkedin" @if.hasFacebook={props.linkedin}></a>
+        <a rel="noopener noreferrer" class="a2a_button_reddit" @if.hasFacebook={props.reddit}></a>
+        <a rel="noopener noreferrer" class="a2a_button_whatsapp" @if.hasFacebook={props.whatsapp}></a>
       </div>
     </div>
   `

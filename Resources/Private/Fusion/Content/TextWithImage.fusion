@@ -2,12 +2,16 @@
 # "Text" element
 #
 prototype(Theme.Blog.Plain:Content.TextWithImage) < prototype(Neos.Neos:ContentComponent) {
+  # Props
   text = Neos.Neos:Editable {
     property = 'text'
   }
 
+  # Rendering
   renderer = afx`
-    <Theme.Blog.Plain:Content.Fragment.Image/>
-    {props.text}
+    <div class="text-with-image">
+      <Theme.Blog.Plain:Content.Fragment.Image/>
+      {props.text}
+    </div>
   `
 }

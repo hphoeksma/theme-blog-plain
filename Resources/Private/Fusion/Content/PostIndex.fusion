@@ -5,11 +5,11 @@ prototype(Theme.Blog.Plain:Content.PostIndex) < prototype(Neos.Fusion:Component)
   posts = ${q(site).find('[instanceof Theme.Blog.Plain:Document.Post]').sort('publicationDateTime', 'DESC').get()}
 
   renderer = afx`
-    <section class="blog__index">
+    <div class="blog__index">
       <Neos.Fusion:Loop items={props.posts}>
         <Theme.Blog.Plain:ProtoType.PostIndexItem node={item}/>
       </Neos.Fusion:Loop>
-    </section>
+    </div>
   `
 
   @cache {

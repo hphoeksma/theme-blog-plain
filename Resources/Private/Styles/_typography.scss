@@ -12,17 +12,13 @@ figure {
   margin: 0 0 1rem;
   display: flex;
   flex-direction: column;
-  picture {
-    min-width: 100%;
-  }
   img {
-    min-width: 100%;
     max-width: 100%;
   }
   figcaption {
-    font-size: 0.85rem;
+    font-size: .85rem;
     line-height: 1;
-    margin-top: 0.5rem;
+    margin-top: .5rem;
     color: var(--font-color-light);
   }
 }
@@ -41,7 +37,7 @@ blockquote {
     font-size: 8rem;
     font-style: italic;
     font-weight: bold;
-    opacity: 0.5;
+    opacity: .5;
     position: absolute;
     top: -2rem;
     left: -2rem;
@@ -59,7 +55,7 @@ blockquote {
     font-family: var(--alternative-font-family);
     &::before {
       content: '—';
-      margin-right: 0.35rem;
+      margin-right: .35rem;
     }
   }
 }

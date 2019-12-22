@@ -17,7 +17,7 @@ prototype(Theme.Blog.Plain:Content.Fragment.Image) < prototype(Neos.Fusion:Compo
     }
   }
 
-  alt = ${q(node).property('alternativeText')}
+  alt = ${q(node).property('alternativeText') ? q(node).property('alternativeText') : q(node).property('title')}
   title = ${q(node).property('title')}
   class = Neos.Fusion:Join {
     isFeatured = ${q(node).property('isFeatured') ? 'is-featured' : null}

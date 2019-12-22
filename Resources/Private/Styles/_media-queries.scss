@@ -1,37 +1,36 @@
-@media (max-width: 1040px) {
+@media (max-width: 768px) {
   /* @docs we switch to one column */
   .container {
     grid-template-columns: 1fr;
     gap: 0;
 
-    .main > section article {
-      > * {
-
-        grid-column: 1 / -2;
-      }
+    .sidebar__handle {
+      background: var(--sidebar-handle-background-color);
+      border: none;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+      display: grid;
+      align-content: center;
+      position: fixed;
+      height: 2.5rem;
+      width: 2.5rem;
+      top: 1rem;
+      right: 1rem;
     }
 
-    .blog__commenting {
-      > * {
-        grid-column: 1 / -2;
-      }
-    }
     .blog__index {
-      grid-column: 1 / -2;
-
-      .article:nth-child(odd),
-      .article:nth-child(even){
-        grid-column: 1 / -2;
-      }
+      grid-column: 1 / -1;
+      grid-template-columns: 1fr;
     }
   }
 
-
   /* @docs we hide the sidebar and show a handler button */
   .sidebar {
-    transform: translateX(-85vw);
-    width: 85vw;
-    transition: transform 0.8s ease-in-out;
+    width: 80vw;
+    transform: translateX(-80vw);
+    transition: transform .8s ease-in-out;
 
     &.is-active {
       transform: translateX(0);
@@ -42,26 +41,15 @@
         margin-top: 0;
 
         a {
-          color: var(--sidebar-open-font-color);
+          color: var(--sidebar-active-font-color);
           text-align: center;
         }
       }
     }
   }
 
-  .container .main .sidebar__handle {
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    position: fixed;
-    height: 2rem;
-    width: 2rem;
-    top: 2rem;
-    right: 3rem;
-  }
-
   /* @docs let's make some content elements play 😎 */
-  .container .main > section article > .neos-contentcollection {
+  .neos-contentcollection {
     .is-featured,
     .align-right,
     .align-left,
@@ -71,23 +59,12 @@
       margin-left: 0;
 
       img {
-        min-width: 100%;
         max-width: 100%;
       }
     }
 
-    .is-featured {
-      margin-left: -2rem;
-      margin-right: -2rem;
-      width: calc(100% + 4rem);
-    }
-
     figcaption {
-      padding-left: 0.5rem;
-    }
-
-    blockquote {
-      grid-column: 1 / -1;
+      padding-left: .5rem;
     }
   }
 }

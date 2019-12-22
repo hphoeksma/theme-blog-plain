@@ -10,8 +10,8 @@ Theme.Blog.Plain:Document:
       # Neos.NodeTypes is deprecated and we prevent adding documents from this package
       'Neos.NodeTypes:Page': false
       # Homepage and NotFoundPage are not meant to be added by editors
-      'Neos.Demo:Document.Homepage': false
-      'Neos.Demo:Document.NotFoundPage': false
+      'Theme.Blog.Plain:Document.Home': false
+      'Theme.Blog.Plain:Document.NotFoundPage': false
 
 Theme.Blog.Plain:Document.Page:
   superTypes:

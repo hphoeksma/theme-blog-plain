@@ -28,5 +28,8 @@
               underline: true
               strikethrough: true
               center: true
+              justify: true
+              left: true
+              right: true
             autoparagraph: true
             placeholder: i18n

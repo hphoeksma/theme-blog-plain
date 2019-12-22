@@ -30,16 +30,16 @@ prototype(Theme.Blog.Plain:Prototype.Follow) < prototype(Neos.Neos:ContentCompon
     <div class="follow">
       <p @if.has={props.text}>{props.text}</p>
       <div class="follow__list a2a_kit a2a_kit_size_24 a2a_default_style a2a_follow">
-        <a class="a2a_button_twitter" data-a2a-follow={props.twitter} @if.has={props.twitter}></a>
-        <a class="a2a_button_facebook" data-a2a-follow={props.facebook} @if.has={props.facebook}></a>
-        <a class="a2a_button_instagram" data-a2a-follow={props.instagram} @if.has={props.instagram}></a>
-        <a class="a2a_button_pinterest" data-a2a-follow={props.pinterest} @if.has={props.pinterest}></a>
-        <a class="a2a_button_linkedin" data-a2a-follow={props.linkedin} @if.has={props.linkedin}></a>
-        <a class="a2a_button_vimeo" data-a2a-follow={props.vimeo} @if.has={props.vimeo}></a>
-        <a class="a2a_button_youtube" data-a2a-follow={props.youtube} @if.has={props.youtube}></a>
-        <a class="a2a_button_github" data-a2a-follow={props.github} @if.has={props.github}></a>
-        <a class="a2a_button_medium" data-a2a-follow={props.medium} @if.has={props.medium}></a>
-        <a class="a2a_button_strava" href={props.strava} @if.has={props.strava}>
+        <a rel="noopener noreferrer" class="a2a_button_twitter" data-a2a-follow={props.twitter} @if.has={props.twitter}></a>
+        <a rel="noopener noreferrer" class="a2a_button_facebook" data-a2a-follow={props.facebook} @if.has={props.facebook}></a>
+        <a rel="noopener noreferrer" class="a2a_button_instagram" data-a2a-follow={props.instagram} @if.has={props.instagram}></a>
+        <a rel="noopener noreferrer" class="a2a_button_pinterest" data-a2a-follow={props.pinterest} @if.has={props.pinterest}></a>
+        <a rel="noopener noreferrer" class="a2a_button_linkedin" data-a2a-follow={props.linkedin} @if.has={props.linkedin}></a>
+        <a rel="noopener noreferrer" class="a2a_button_vimeo" data-a2a-follow={props.vimeo} @if.has={props.vimeo}></a>
+        <a rel="noopener noreferrer" class="a2a_button_youtube" data-a2a-follow={props.youtube} @if.has={props.youtube}></a>
+        <a rel="noopener noreferrer" class="a2a_button_github" data-a2a-follow={props.github} @if.has={props.github}></a>
+        <a rel="noopener noreferrer" class="a2a_button_medium" data-a2a-follow={props.medium} @if.has={props.medium}></a>
+        <a rel="noopener noreferrer" class="a2a_button_strava" href={props.strava} @if.has={props.strava}>
           <img src={props.stravaIcon} border="0" alt="Share" width="20" height="20"/>
         </a>
       </div>

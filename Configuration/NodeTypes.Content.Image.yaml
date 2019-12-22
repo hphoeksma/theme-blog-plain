@@ -40,7 +40,7 @@ Theme.Blog.Plain:Content.Image:
         reloadIfChanged: true
         inspector:
           hidden: 'ClientEval:node.properties.isFeatured ? true : false'
-          group: theme
+          group: image
           editor: Neos.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             values:
