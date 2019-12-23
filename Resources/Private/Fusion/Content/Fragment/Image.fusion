@@ -2,6 +2,25 @@
 # Figure fragment for text and textWithImage
 #
 prototype(Theme.Blog.Plain:Content.Fragment.Image) < prototype(Neos.Fusion:Component) {
+
+  sources = Neos.Fusion:Join {
+    mobile = Neos.Fusion:Tag {
+      tagName = 'source'
+      attributes.srcset = Neos.Neos:ImageUri {
+        asset = ${q(node).property('image')}
+        maximumWidth = 768
+      }
+      attributes.media = '(max-width: 768px)'
+    }
+    default = Neos.Fusion:Tag {
+      tagName = 'source'
+      attributes.srcset = Neos.Neos:ImageUri {
+        asset = ${q(node).property('image')}
+      }
+      attributes.media = '(min-width: 769px)'
+    }
+  }
+
   src = Neos.Fusion:Case {
     asset {
       condition = ${q(node).property('image')}
@@ -17,8 +36,9 @@ prototype(Theme.Blog.Plain:Content.Fragment.Image) < prototype(Neos.Fusion:Compo
     }
   }
 
-  alt = ${q(node).property('alternativeText') ? q(node).property('alternativeText') : q(node).property('title')}
+  alt = ${q(node).property('alternativeText') != '' ? q(node).property('alternativeText') : q(node).property('title')}
   title = ${q(node).property('title')}
+
   class = Neos.Fusion:Join {
     isFeatured = ${q(node).property('isFeatured') ? 'is-featured' : null}
     float = ${q(node).property('align') ? 'align-' + q(node).property('align') : null}
@@ -54,6 +74,7 @@ prototype(Theme.Blog.Plain:Content.Fragment.Image) < prototype(Neos.Fusion:Compo
   renderer = afx`
     <figure class={props.class}>
       <picture class={props.imageClass}>
+        {props.sources}
         <img src={props.src} title={props.title} alt={props.alt}/>
       </picture>
       <figcaption @if.has={props.hasCaption && props.caption}>
