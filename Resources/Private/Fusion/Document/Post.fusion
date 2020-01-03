@@ -7,6 +7,8 @@ prototype(Theme.Blog.Plain:Document.Post) < prototype(Theme.Blog.Plain:Document.
 
 prototype(Theme.Blog.Plain:Prototype.Post) < prototype(Neos.Fusion:Component) {
   @context.showPermalink = false
+  # the context variable allows us to force disable commenting (for use with lastPost)
+  @context.enableCommenting = true
   header = ${q(documentNode).property('title')}
   content = Neos.Neos:ContentCollection {
     nodePath = 'main'
@@ -14,11 +16,18 @@ prototype(Theme.Blog.Plain:Prototype.Post) < prototype(Neos.Fusion:Component) {
   publicationDate = ${Date.format(q(documentNode).property('publicationDateTime'), 'd-m-Y')}
   intenseDebateSiteAcct = ${Configuration.setting('Theme.Blog.Plain.commenting.intenseDebateSiteAcct')}
   disqusEmbed = ${Configuration.setting('Theme.Blog.Plain.commenting.disqusEmbed')}
-  enableCommenting = ${q(documentNode).property('enableCommenting') && (this.intenseDebateSiteAcct || this.disqusEmbed)}
+  enableCommenting = ${enableCommenting && q(documentNode).property('enableCommenting') && (this.intenseDebateSiteAcct || this.disqusEmbed)}
+  documentEnabledCommenting = ${q(documentNode).property('enableCommenting') && (this.intenseDebateSiteAcct || this.disqusEmbed)}
   nodeUri = Neos.Neos:NodeUri {
     absolute = true
     node = ${documentNode}
   }
+  commentUri = Neos.Neos:NodeUri {
+    absolute = true
+    node = ${documentNode}
+  }
+  commentUri.@process.wrap = ${value + '#comments'}
+
   node = ${node}
 
   # Rendering
@@ -33,10 +42,12 @@ prototype(Theme.Blog.Plain:Prototype.Post) < prototype(Neos.Fusion:Component) {
         </p>
         <a href={props.nodeUri} class="article__permalink" @if.isHome={showPermalink}>{Translation.translate('post.permalinkText',
           null, [], 'NodeTypes/Document/Post', 'Theme.Blog.Plain')}</a>
+        <a href={props.commentUri} @if.documentEnabledCommenting={!enableCommenting && props.documentEnabledCommenting}>{Translation.translate('post.leaveAComment',
+          null, [], 'NodeTypes/Document/Post', 'Theme.Blog.Plain')}</a>
         <Theme.Blog.Plain:Prototype.ShareLinks documentNode={documentNode}/>
       </footer>
     </article>
-    <div class="blog__commenting" @if.hasCommenting={props.enableCommenting}>
+    <div class="blog__commenting" id="comments" @if.hasCommenting={props.enableCommenting}>
       <div @if.hasIntenseDebate={props.intenseDebateSiteAcct}>
         <script>
           var idcomments_acct = '{props.intenseDebateSiteAcct}';

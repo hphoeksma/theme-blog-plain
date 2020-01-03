@@ -4,12 +4,12 @@
 prototype(Theme.Blog.Plain:Content.LastPost) < prototype(Neos.Fusion:Component) {
   # Props
   lastPost = ${q(site).find('[instanceof Theme.Blog.Plain:Document.Post]').sort('publicationDateTime', 'DESC').get(0)}
-
+  enableCommenting = ${q(node).property('enableCommenting')}
   # Rendering
   renderer = afx`
     <div class="blog__last-post">
       <Theme.Blog.Plain:Prototype.Post @context.node={props.lastPost} @context.documentNode={props.lastPost}
-                                       @context.showPermalink="true"/>
+                                       @context.showPermalink="true" @context.enableCommenting={props.enableCommenting}/>
     </div>
   `
 }

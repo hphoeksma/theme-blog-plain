@@ -8,6 +8,9 @@
       <trans-unit id="post.permalinkText">
         <source>Permalink</source>
       </trans-unit>
+      <trans-unit id="post.leaveAComment">
+        <source>Leave a comment!</source>
+      </trans-unit>
       <trans-unit id="ui.label">
         <source>Blog post</source>
       </trans-unit>

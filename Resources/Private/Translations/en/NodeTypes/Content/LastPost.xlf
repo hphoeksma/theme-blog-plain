@@ -5,6 +5,9 @@
       <trans-unit id="ui.label">
         <source>Last post</source>
       </trans-unit>
+      <trans-unit id="properties.enableCommenting">
+        <source>Enable commenting</source>
+      </trans-unit>
 		</body>
 	</file>
 </xliff>

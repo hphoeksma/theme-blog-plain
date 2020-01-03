@@ -1,6 +1,16 @@
 Theme.Blog.Plain:Content.LastPost:
   superTypes:
     Neos.Neos:Content: true
+    Theme.Blog.Plain:Mixin.Theme: true
   ui:
     label: i18n
     icon: 'far fa-newspaper'
+  properties:
+    enableCommenting:
+      type: boolean
+      defaultValue: false
+      ui:
+        label: i18n
+        inspector:
+          group: theme
+
