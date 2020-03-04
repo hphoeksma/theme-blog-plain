@@ -3,7 +3,7 @@
 #
 prototype(Theme.Blog.Plain:Content.LastPost) < prototype(Neos.Fusion:Component) {
   # Props
-  lastPost = ${q(site).find('[instanceof Theme.Blog.Plain:Document.Post]').sort('publicationDateTime', 'DESC').get(0)}
+  lastPost = ${q(site).find('[instanceof Theme.Blog.Plain:Document.Post][_hiddenInIndex = false]').sort('publicationDateTime', 'DESC').get(0)}
   enableCommenting = ${q(node).property('enableCommenting')}
   # Rendering
   renderer = afx`

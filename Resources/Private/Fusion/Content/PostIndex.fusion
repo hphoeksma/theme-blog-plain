@@ -2,7 +2,7 @@
 # "Text" element
 #
 prototype(Theme.Blog.Plain:Content.PostIndex) < prototype(Neos.Fusion:Component) {
-  posts = ${q(site).find('[instanceof Theme.Blog.Plain:Document.Post]').sort('publicationDateTime', 'DESC').get()}
+  posts = ${q(site).find('[instanceof Theme.Blog.Plain:Document.Post][_hiddenInIndex = false]').sort('publicationDateTime', 'DESC').get()}
 
   renderer = afx`
     <div class="blog__index">
