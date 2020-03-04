@@ -1,0 +1,3 @@
+prototype(Theme.Blog.Plain:Prototype.PackageLoaded) {
+  @class = 'Theme\\Blog\\Plain\\Fusion\\PackageLoadedImplementation'
+}
