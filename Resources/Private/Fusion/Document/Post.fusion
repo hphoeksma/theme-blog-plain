@@ -12,6 +12,10 @@ prototype(Theme.Blog.Plain:Prototype.Post) < prototype(Neos.Fusion:Component) {
   header = ${q(documentNode).property('title')}
   content = Neos.Neos:ContentCollection {
     nodePath = 'main'
+    @process.footnotes = Psmb.Footnote:FootnoteProcessor
+    @process.footnotes.@if.psmbFootnotesIsActive = Theme.Blog.Plain:Prototype.PackageLoaded {
+      package = 'Psmb.Footnote'
+    }
   }
   publicationDate = ${Date.format(q(documentNode).property('publicationDateTime'), 'd-m-Y')}
   intenseDebateSiteAcct = ${Configuration.setting('Theme.Blog.Plain.commenting.intenseDebateSiteAcct')}

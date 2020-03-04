@@ -29,7 +29,9 @@ html {
   --footer-background-color: white;
   --footer-font-color: var(--font-color-light);
   --blog__article-footer-border-color: rgba(51, 51, 51, .2);
-  --blog__article-lead-color: #333; }
+  --blog__article-lead-color: #333;
+  --blog__article-footnote-color: var(--font-color-light);
+  --blog__article-footnote-list-color: var(--font-color-light); }
 
 body {
   margin: 0;
@@ -340,6 +342,21 @@ a:link, a:visited, a:active {
       .container .blog__index .article__read-more:hover span {
         -webkit-transform: translateY(0);
                 transform: translateY(0); }
+
+.footnote a {
+  color: var(--blog__article-footnote-color);
+  border-bottom: 0; }
+
+.footnotes-list {
+  list-style: none;
+  padding-left: 0;
+  font-size: .85rem; }
+  .footnotes-list a {
+    color: var(--blog__article-footnote-list-color); }
+
+.neos-backend span[data-footnote]:after {
+  content: '*';
+  color: #00ADEE; }
 
 .main {
   background-color: var(--main-background-color);

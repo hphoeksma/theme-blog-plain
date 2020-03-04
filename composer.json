@@ -11,7 +11,8 @@
   "suggest": {
     "neos/seo": "*",
     "yoast/yoast-seo-for-neos": "*",
-    "dl/assetsource-unsplash": "*"
+    "dl/assetsource-unsplash": "*",
+    "psmb/footnote": "*"
   },
   "autoload": {
     "psr-4": {

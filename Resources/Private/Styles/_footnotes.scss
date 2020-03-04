@@ -1,0 +1,19 @@
+.footnote a {
+  color: var(--blog__article-footnote-color);
+  border-bottom: 0;
+}
+
+.footnotes-list {
+  list-style: none;
+  padding-left: 0;
+  font-size: .85rem;
+
+  a {
+    color: var(--blog__article-footnote-list-color);
+  }
+}
+
+.neos-backend span[data-footnote]:after {
+  content: '*';
+  color: #00ADEE;
+}

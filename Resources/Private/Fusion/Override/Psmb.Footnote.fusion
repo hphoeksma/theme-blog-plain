@@ -1,0 +1,11 @@
+prototype(Psmb.Footnote:FootnoteProcessor) < prototype(Neos.Fusion:Array) {
+
+  content.@process.parse {
+    replacementRenderer = ${matches[2] + '<sup class="footnote" id="footnote_' + iterator.cycle + '"><a href="#footnote_' + iterator.cycle + '">' + iterator.cycle + '</a></sup>'}
+  }
+
+  footnotes {
+    @process.wrap = ${value && '<ul class="footnotes-list">' + value + '</ul>'}
+    itemRenderer = ${'<li class="footnotes-list__item" id="footnote_' + iterator.cycle + '"><a href="#footnote_' + iterator.cycle + '"><sup>' + iterator.cycle + '</sup></a> ' + item[1] + '</li>'}
+  }
+}

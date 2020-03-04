@@ -42,8 +42,4 @@ Neos:
     nodeTypes:
       groups:
         plugins: ~
-  Media:
-    assetSources:
-      unsplash:
-        assetSourceOptions:
-          accessKey: fcdb3cbf4db161f63ae54e86a9e96236443a3d393b1a623a1bb65e94e76beeb0
+

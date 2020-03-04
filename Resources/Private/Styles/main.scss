@@ -41,6 +41,8 @@ html {
   // Blog
   --blog__article-footer-border-color: rgba(51, 51, 51, .2);
   --blog__article-lead-color: #333;
+  --blog__article-footnote-color: var(--font-color-light);
+  --blog__article-footnote-list-color: var(--font-color-light);
 }
 
 body {
@@ -56,54 +58,55 @@ body {
 @import '_follow.scss';
 @import '_utils.scss';
 @import '_blog.scss';
+@import '_footnotes.scss';
 
-  .main {
-    background-color: var(--main-background-color);
+.main {
+  background-color: var(--main-background-color);
 
-    /* @docs a little top and bottom so we have some room there */
-    padding: 2rem 0;
+  /* @docs a little top and bottom so we have some room there */
+  padding: 2rem 0;
 
-    .breadcrumbs {
-      font-family: var(--alternative-font-family);
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
+  .breadcrumbs {
+    font-family: var(--alternative-font-family);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 
-      a {
-        margin: 0 .5rem;
-        border: none;
-        color: var(--breadcrumbs-font-color);
-        font-style: italic;
-        font-size: .75rem;
-        text-transform: uppercase;
+    a {
+      margin: 0 .5rem;
+      border: none;
+      color: var(--breadcrumbs-font-color);
+      font-style: italic;
+      font-size: .75rem;
+      text-transform: uppercase;
 
-        &:first-child {
-          margin-left: 0;
-        }
-      }
-
-      span:last-child {
-        display: none;
+      &:first-child {
+        margin-left: 0;
       }
     }
 
-    .sidebar__handle {
+    span:last-child {
       display: none;
     }
-
   }
 
-  .footer {
-    background-color: var(--footer-background-color);
-    color: var(--footer-font-color);
-    font-size: .85rem;
-    padding: 1rem;
-    text-align: center;
-
-    p {
-      margin: 0;
-    }
+  .sidebar__handle {
+    display: none;
   }
+
+}
+
+.footer {
+  background-color: var(--footer-background-color);
+  color: var(--footer-font-color);
+  font-size: .85rem;
+  padding: 1rem;
+  text-align: center;
+
+  p {
+    margin: 0;
+  }
+}
 
 .sidebar {
   background-color: var(--sidebar-default-background-color);
