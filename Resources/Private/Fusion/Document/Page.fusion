@@ -25,14 +25,16 @@ prototype(Theme.Blog.Plain:Document.Page) < prototype(Neos.Neos:Page) {
       `
     }
 
-    stylesheets = Neos.Fusion:Component {
-      styles = Neos.Fusion:ResourceUri {
-        path = 'resource://Theme.Blog.Plain/Public/styles/main.css'
-      }
+    stylesheets {
+      default = Neos.Fusion:Component {
+        main = Neos.Fusion:ResourceUri {
+          path = 'resource://Theme.Blog.Plain/Public/styles/main.css'
+        }
 
-      renderer = afx`
-        <link rel="stylesheet" href={props.styles}/>
-      `
+        renderer = afx`
+          <link rel="stylesheet" href={props.main}/>
+        `
+      }
     }
 
   }
@@ -85,14 +87,16 @@ prototype(Theme.Blog.Plain:Document.Page) < prototype(Neos.Neos:Page) {
       </aside>
     `
 
-    javascripts = Neos.Fusion:Component {
-      main = Neos.Fusion:ResourceUri {
-        path = 'resource://Theme.Blog.Plain/Public/scripts/main.js'
+    javascripts {
+      blog = Neos.Fusion:Component {
+        main = Neos.Fusion:ResourceUri {
+          path = 'resource://Theme.Blog.Plain/Public/scripts/main.js'
+        }
+        renderer = afx`
+          <script src={props.main}></script>
+          <script async src="https://static.addtoany.com/menu/page.js"></script>
+        `
       }
-      renderer = afx`
-        <script src={props.main}></script>
-        <script async src="https://static.addtoany.com/menu/page.js"></script>
-      `
     }
   }
 }
