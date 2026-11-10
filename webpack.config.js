@@ -23,36 +23,16 @@ module.exports = {
     }, {
       test: /\.(sa|sc|c)ss$/,
       use: [{
-        loader: MiniCssExtractPlugin.loader,
-        options: {
-          hmr: process.env.NODE_ENV === 'development'
-        }
+        loader: MiniCssExtractPlugin.loader
       },
-        'css-loader?url=false',
+        { loader: 'css-loader', options: { url: false } },
         'postcss-loader',
         'sass-loader'
       ]
     },
-      {
-      test: /\.(svg)(\?v=\d+\.\d+\.\d+)?$/,
-      loader: 'url-loader?mimetype=image/svg+xml'
-    }, {
-      test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
-      loader: 'url-loader?mimetype=application/font-woff'
-    }, {
-      test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
-      loader: 'url-loader?mimetype=application/font-woff'
-    }, {
-      test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-      loader: 'url-loader?mimetype=application/octet-stream'
-    }, {
-      test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-      loader: 'url-loader'
-    }, {
-      test: /\.(png|svg|jpg|gif)$/,
-      use: [
-        'file-loader'
-      ]
+    {
+      test: /\.(svg|png|jpg|gif|woff2?|ttf|eot)$/,
+      type: 'asset/inline'
     }
     ]
   },
@@ -61,8 +41,7 @@ module.exports = {
       // Options similar to the same options in webpackOptions.output
       // both options are optional
       filename: devMode ? 'styles/main.css' : 'styles/main.[hash].css',
-      chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
-      path: sitePath + '/Resources/Public'
+      chunkFilename: devMode ? '[id].css' : '[id].[hash].css'
     }),
     new LiveReloadPlugin()
   ]
